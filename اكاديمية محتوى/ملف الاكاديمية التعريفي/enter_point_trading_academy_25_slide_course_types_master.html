@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشامل لأنواع الدورات والمسارات - أكاديمية إنتر بوينت (25 شريحة مكثفة)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --bg-lighter: #141414;
+            --gold-gradient: linear-gradient(135deg, #c5a059, #f8df95, #c5a059);
+            --gold-solid: #c5a059;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-gold: rgba(197, 160, 89, 0.4);
+            --glow-gold: 0 0 20px rgba(197, 160, 89, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b0b0b;
+            background-image: radial-gradient(circle at 50% 0%, #2a2210 0%, #0b0b0b 75%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentation-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1320px;
+            height: 760px;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 0 60px rgba(0,0,0,0.95), inset 0 0 35px rgba(0,0,0,0.8);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.97);
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 2.2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        .slide-title-wrapper {
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-shrink: 0;
+        }
+
+        .slide-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .slide-title i {
+            font-size: 1.4rem;
+            -webkit-text-fill-color: var(--gold-solid);
+        }
+
+        .slide-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .slide-cover {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-cover .info-section {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .logo-ep {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .logo-ep i { font-size: 1.8rem; position: absolute; top: 8px; left: -32px; -webkit-text-fill-color: var(--gold-solid); }
+        .logo-text-en { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--gold-solid); text-transform: uppercase; margin-top: 8px;}
+        
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            flex: 1;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .text-block p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            text-align: justify;
+        }
+
+        .feature-box {
+            background-color: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 0.9rem 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-gold);
+        }
+        .feature-box:hover { transform: translateY(-2px); border-color: var(--gold-solid); }
+        
+        .feature-box i {
+            font-size: 1.3rem;
+            color: var(--gold-solid);
+            background: rgba(197, 160, 89, 0.12);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        .feature-box h3 { color: var(--text-light); margin-bottom: 3px; font-size: 0.98rem; }
+        .feature-box p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.35; margin: 0;}
+
+        .chart-container {
+            background: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            height: 100%;
+        }
+
+        .bar-chart-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+        }
+        .bar-label {
+            width: 150px;
+            flex-shrink: 0;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        .bar-track {
+            flex: 1;
+            background: var(--bg-dark);
+            height: 9px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .bar-fill {
+            height: 100%;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+        }
+        .bar-value {
+            width: 40px;
+            text-align: left;
+            color: var(--gold-solid);
+            font-weight: bold;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 3rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 6px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-nav {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(197, 160, 89, 0.2);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            color: var(--text-muted);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            min-width: 70px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .slide-indicator span { color: var(--gold-solid); font-weight: bold; font-size: 1.3rem;}
+
+        @media (max-width: 1024px) {
+            .presentation-wrapper { height: 100vh; border-radius: 0; border: none; }
+            .grid-2col, .grid-3col { grid-template-columns: 1fr; gap: 0.8rem; }
+            .slide-content { padding: 1.2rem; }
+            .controls { left: 50%; transform: translateX(-50%); bottom: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-wrapper">
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- Slide 1: Cover -->
+            <div class="slide slide-cover active">
+                <div class="info-section">
+                    <div class="logo-container">
+                        <div class="logo-ep">EP <i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="logo-text-en">ENTER POINT TRADING ACADEMY</div>
+                        <div style="font-size: 1.05rem; color: var(--gold-solid); margin-top: 8px; letter-spacing: 2px;">الملف الشامل المتقدم لجميع أنواع الدورات والمسارات التدريبية</div>
+                    </div>
+                    <div style="margin-top: 1.8rem;">
+                        <h1 style="font-size: 1.9rem; font-weight: 800; color: var(--text-light); margin-bottom: 6px;">المرجع الأكاديمي والتحليلي المتكامل لصناعة المتداولين</h1>
+                        <p style="color: var(--text-muted); max-width: 680px; margin: 0 auto; font-size: 0.98rem; line-height: 1.6;">
+                            يحتوي هذا الملف على تفاصيل 25 مساراً ودورة تدريبية مع الرسوم البيانية والإحصائيات والأدوات الحية والمناهج المعتمدة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Index Part 1 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-list-ul"></i> فهرس الدورات والمسارات التدريبية (1/2)</h2>
+                        <span class="slide-subtitle">02 / INDEX PART I</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div>
+                            <div class="feature-box"><h3>01</h3><p>صفحة الغلاف والهوية الأكاديمية</p></div>
+                            <div class="feature-box"><h3>02</h3><p>الفهرس الشامل والمحتويات</p></div>
+                            <div class="feature-box"><h3>03</h3><p>فلسفة التصميم الهرمي للمناهج</p></div>
+                            <div class="feature-box"><h3>04</h3><p>دورة أساسيات الفوركس والمبتدئين</p></div>
+                            <div class="feature-box"><h3>05</h3><p>دورة التحليل الفني الكلاسيكي والمتقدم</p></div>
+                            <div class="feature-box"><h3>06</h3><p>دورة سلوك السعر (Price Action)</p></div>
+                            <div class="feature-box"><h3>07</h3><p>دورة العرض والطلب وصناع السوق (SMC)</p></div>
+                            <div class="feature-box"><h3>08</h3><p>دبلومة إدارة المخاطر المؤسسية المتقدمة</p></div>
+                            <div class="feature-box"><h3>09</h3><p>دبلومة علم نفس التداول (Trading Psychology)</p></div>
+                            <div class="feature-box"><h3>10</h3><p>برنامج الإرشاد التفاعلي والجلسات الحية</p></div>
+                            <div class="feature-box"><h3>11</h3><p>مسار تداول العملات الرقمية (Crypto)</p></div>
+                            <div class="feature-box"><h3>12</h3><p>مسار تداول المعادن الثمينة والذهب (XAUUSD)</p></div>
+                        </div>
+                        <div>
+                            <div class="feature-box"><h3>13</h3><p>مسار المؤشرات الأمريكية الكبرى (US Indices)</p></div>
+                            <div class="feature-box"><h3>14</h3><p>برنامج اجتياز تحديات شركات التمويل (Prop Firms)</p></div>
+                            <div class="feature-box"><h3>15</h3><p>برنامج المحترفين وإدارة المحافظ المالية</p></div>
+                            <div class="feature-box"><h3>16</h3><p>قسم المكتبة المجانية التأسيسية الشاملة</p></div>
+                            <div class="feature-box"><h3>17</h3><p>برنامج الإشراف الفردي الخاص (1-on-1 Mentoring)</p></div>
+                            <div class="feature-box"><h3>18</h3><p>جدول مقارنة البرامج والمسارات الأكاديمية</p></div>
+                            <div class="feature-box"><h3>19</h3><p>مؤشرات الأداء وإحصائيات نجاح المتدربين</p></div>
+                            <div class="feature-box"><h3>20</h3><p>المنصات والأدوات الاحترافية المعتمدة (MT5 & TradingView)</p></div>
+                            <div class="feature-box"><h3>21</h3><p>خارطة طريق المتدرب نحو الاستقلالية</p></div>
+                            <div class="feature-box"><h3>22</h3><p>معايير ضمان الجودة والدعم الأكاديمي المستمر</p></div>
+                            <div class="feature-box"><h3>23</h3><p>قصص النجاح الحية ونماذج التخريج</p></div>
+                            <div class="feature-box"><h3>24-25</h3><p>الأسئلة الشائعة وقنوات التسجيل الرسمية</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Philosophy -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-lightbulb"></i> 01. فلسفة التصميم الأكاديمي للمسارات</h2>
+                        <span class="slide-subtitle">03 / PHILOSOPHY</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>منهجية الهرم المعرفي المتدرج</h3>
+                            <p>تعتمد أكاديمية إنتر بوينت في تصميم مساراتها على الانتقال التدريجي للمتدرب من الصفر المطلق في قراءة الشارت وحتى الاحتراف المؤسسي الكامل وإدارة المحافظ الضخمة.</p>
+                            <p>لا نؤمن بالدورات العشوائية أو المعلبات الجاهزة، بل يتم تحديث المناهج بانتظام بناءً على التغيرات الفعلية في سلوك السيولة العالمية والأسواق المالية.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: تدرج هيكل البرامج الأكاديمية</h4>
+                            <div class="bar-chart-row"><span class="bar-label">المستوى التأسيسي</span><div class="bar-track"><div class="bar-fill" style="width: 30%;"></div></div><span class="bar-value">30%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">التحليل الفني والكمي</span><div class="bar-track"><div class="bar-fill" style="width: 60%;"></div></div><span class="bar-value">60%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">سلوك السعر وSMC</span><div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div><span class="bar-value">85%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">الاحتراف وإدارة المحافظ</span><div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div><span class="bar-value">100%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Beginners Course -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-seedling"></i> 02. دورة أساسيات التداول للمبتدئين</h2>
+                        <span class="slide-subtitle">04 / BEGINNERS TRACK</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>بناء القاعدة الحقيقية للمتداول</h3>
+                            <p>مخصصة تماماً لكل من يخطو خطوته الأولى. تتعلم فيها ماهية أسواق الفوركس، العقود الفورية، الآسيوية والأوروبية والأمريكية، وكيفية التعامل مع منصات التداول (MT5) بمهارة وأمان.</p>
+                            <p>شرح مبسط لمفهوم الرافعة المالية، الهامش المتاح، وكيفية فتح وإغلاق الصفقات دون أي أخطاء تقنية.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: نسب استيعاب المتدرب المبتدئ</h4>
+                            <div class="bar-chart-row"><span class="bar-label">المصطلحات والمفاهيم</span><div class="bar-track"><div class="bar-fill" style="width: 45%;"></div></div><span class="bar-value">45%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">إتقان المنصات والأدوات</span><div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div><span class="bar-value">75%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">التنفيذ الفعلي بأمان</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Technical Analysis -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chart-line"></i> 03. دورة التحليل الفني الكلاسيكي والمتقدم</h2>
+                        <span class="slide-subtitle">05 / TECHNICAL ANALYSIS</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>قراءة الشارت والمدارس الكلاسيكية</h3>
+                            <p>تأخذك هذه الدورة نحو عمق الرسوم البيانية. تتعلم قراءة الاتجاهات السعرية، خطوط الترند بدقة، ومناطق الدعم والمقاومة القوية التي تحترمها الأسواق العالمية.</p>
+                            <p>فهم النماذج الانعكاسية والاستمرارية (الرأس والكتفين، القمم المزدوجة، المثلثات والأعلام) وكيفية قياس أهدافها السعرية بالأرقام.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: كفاءة أدوات التحليل الفني</h4>
+                            <div class="bar-chart-row"><span class="bar-label">الدعم والمقاومة</span><div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div><span class="bar-value">90%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">النماذج الكلاسيكية</span><div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div><span class="bar-value">85%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">خطوط الاتجاه (Trendlines)</span><div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div><span class="bar-value">80%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Price Action -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-crosshairs"></i> 04. دورة سلوك السعر (Price Action)</h2>
+                        <span class="slide-subtitle">06 / PRICE ACTION</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>قراءة الشموع اليابانية الخام</h3>
+                            <p>الاعتماد الكلي على قراءة حركة السعر الخام دون زحمة المؤشرات الفنية المتأخرة، واكتشاف إشارات الانعكاس المبكرة.</p>
+                            <p>فهم دلالات أحجام التداول وأجسام الشموع والظلال لمعرفة ما إذا كان المشترون أو البائعون هم المسيطرون على الدفة الزمنية الحالية.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: دقة إشارات البرايس أكشن</h4>
+                            <div class="bar-chart-row"><span class="bar-label">الشموع الانعكاسية</span><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div><span class="bar-value">88%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">أنماط الدخول السريعة</span><div class="bar-track"><div class="bar-fill" style="width: 82%;"></div></div><span class="bar-value">82%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">تأكيد الكسر والاختراق</span><div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div><span class="bar-value">90%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Supply & Demand / SMC -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chess-rook"></i> 05. دورة العرض والطلب وصناع السوق (SMC)</h2>
+                        <span class="slide-subtitle">07 / SMC & LIQUIDITY</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>تتبع السيولة المؤسسية وصناع السوق</h3>
+                            <p>تعتبر هذه الدورة من أقوى البرامج التخصصية. تركز على تتبع آثار صانع السوق (Smart Money) واكتشاف الأماكن الحقيقية لتمركز السيولة المؤسسية.</p>
+                            <p>تحديد مناطق العرض والطلب (Supply & Demand)، اختلالات التوازن السعري (Imbalances)، واقتناص نقاط الدخول بأعلى عائد إلى مخاطرة.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: نسبة نجاح صفقات العرض والطلب</h4>
+                            <div class="bar-chart-row"><span class="bar-label">مناطق Order Blocks</span><div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div><span class="bar-value">92%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">مناطق Imbalance</span><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div><span class="bar-value">88%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">تتبع السيولة (Liquidity)</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Risk Management -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-shield-halved"></i> 06. دبلومة إدارة المخاطر المتقدمة</h2>
+                        <span class="slide-subtitle">08 / RISK MANAGEMENT</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الحفاظ على رأس المال أولاً ودائماً</h3>
+                            <p>تعلم الحساب الدقيق لأحجام العقود (Lot Size)، وتحديد مسافة وقف الخسارة بناءً على نسب المخاطرة الآمنة وعدم المجازفة بأكثر من 1-2% لكل صفقة.</p>
+                            <p>بناء منظومة رياضية تضمن استمرارية الحساب حتى في حال حدوث سلسلة خسائر متتالية لا سمح الله.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: تأثير إدارة المخاطر على استمرارية الحساب</h4>
+                            <div class="bar-chart-row"><span class="bar-label">بدون إدارة مخاطر</span><div class="bar-track"><div class="bar-fill" style="width: 15%; background: #ff4d4d;"></div></div><span class="bar-value">15%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">بإدارة مخاطر صارمة</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Trading Psychology -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-brain"></i> 07. دبلومة علم نفس التداول (Psychology)</h2>
+                        <span class="slide-subtitle">09 / TRADING PSYCHOLOGY</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>السيطرة على العواطف وبناء العقلية</h3>
+                            <p>يُمثل الجانب النفسي 80% من نجاح أي متداول. نتعلم كيفية القضاء على الخوف، الطمع، والرغبة في الانتقام من السوق بعد الخسارة.</p>
+                            <p>بناء يوميات التداول (Trading Journal) وتدريب العقل على تقبل الخسارة كجزء طبيعي من بيئة العمل التجاري المؤسسي.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: أسباب خسارة المتداولين</h4>
+                            <div class="bar-chart-row"><span class="bar-label">عوامل نفسية وطمع</span><div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div><span class="bar-value">80%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">ضعف إدارة المخاطر</span><div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div><span class="bar-value">15%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">ضعف الاستراتيجية</span><div class="bar-track"><div class="bar-fill" style="width: 5%;"></div></div><span class="bar-value">5%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Live Trading Sessions -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-headset"></i> 08. برنامج الإرشاد وجلسات التداول الحية</h2>
+                        <span class="slide-subtitle">10 / LIVE MENTORSHIP</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>التطبيق العملي لحظة بلحظة</h3>
+                            <p>برنامج عملي تفاعلي يجمع المتدربين مع نخبة خبراء الأكاديمية في قاعات تداول حية ومباشرة (Live Trading Sessions).</p>
+                            <p>يتم خلال هذا البرنامج تطبيق المعرفة النظرية لحظة بلحظة، تحليل الأسواق الفعلية، ومناقشة الصفقات الحية وأسباب دخولها وإدارتها لترسيخ الخبرة الميدانية الحقيقية.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: فعالية الجلسات الحية</h4>
+                            <div class="bar-chart-row"><span class="bar-label">ترسيخ المفاهيم النظرية</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">التعامل مع ضغط السوق</span><div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div><span class="bar-value">90%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">اقتناص الفرص الفورية</span><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div><span class="bar-value">88%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Crypto Trading Track -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-bitcoin-sign"></i> 09. مسار تداول العملات الرقمية (Crypto)</h2>
+                        <span class="slide-subtitle">11 / CRYPTO TRACK</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>تحليل أسواق الكريبتو وتقنيات السيولة</h3>
+                            <p>دراسة دورات البيتكوين، العملات البديلة، وتقنيات تحليل السحب العالي والسيولة الرقمية بحذر وأمان تام.</p>
+                            <p>فهم مؤشرات الهيمنة (Dominance)، تحليل مشاريع العملات الرقمية واكتشاف فرص الاستثمار بعيد المدى والمضاربة القصيرة.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: تقلبات العوائد والمخاطر</h4>
+                            <div class="bar-chart-row"><span class="bar-label">البيتكوين (BTC)</span><div class="bar-track"><div class="bar-fill" style="width: 70%;"></div></div><span class="bar-value">70%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">العملات البديلة (Altcoins)</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Precious Metals Track -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-coins"></i> 10. مسار تداول المعادن والذهب (Gold & Metals)</h2>
+                        <span class="slide-subtitle">12 / METALS TRACK</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>أسرار الملاذ الآمن والذهب (XAUUSD)</h3>
+                            <p>برنامج مخصص لمتداولي الذهب (XAUUSD) والملاذات الآمنة. يتناول قراءة تأثير بيانات التضخم الأمريكية، أسعار الفائدة، والتوترات الجيوسياسية على حركة المعدن الأصفر.</p>
+                            <p>تحديد مستويات السيولة الكبرى وتحركات البنوك المركزية الكبرى وتأثيرها اللحظي.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: سيولة وحركة تداول الذهب</h4>
+                            <div class="bar-chart-row"><span class="bar-label">استجابة لبيانات التضخم</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">احترام مناطق الدعم الكبرى</span><div class="bar-track"><div class="bar-fill" style="width: 89%;"></div></div><span class="bar-value">89%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Indices Track -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chart-column"></i> 11. مسار تداول المؤشرات الأمريكية (US Indices)</h2>
+                        <span class="slide-subtitle">13 / INDICES TRACK</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>داو جونز (Dow Jones) وناسداك (Nasdaq)</h3>
+                            <p>تحركات قوية وسريعة تتطلب فهماً عميقاً لأوقات الجلسات الأمريكية، السيولة العالية، ومستويات الدعم والمقاومة التاريخية.</p>
+                            <p>كيفية اقتناص صفقات الزخم القوي أثناء افتتاح وول ستريت والتعامل مع الفجوات السعرية.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: حجم السيولة وسرعة الحركة</h4>
+                            <div class="bar-chart-row"><span class="bar-label">الناسداك (Nasdaq)</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">الداو جونز (Dow Jones)</span><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div><span class="bar-value">88%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">مؤشر S&P 500</span><div class="bar-track"><div class="bar-fill" style="width: 82%;"></div></div><span class="bar-value">82%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Prop Firms Challenge Course -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-award"></i> 12. برنامج اجتياز اختبارات شركات التمويل</h2>
+                        <span class="slide-subtitle">14 / PROP FIRMS CHALLENGE</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الطريق نحو الحسابات الممولة</h3>
+                            <p>برنامج استثنائي يجهز المتدرب لاجتياز تحديات شركات التمويل عبر الالتزام الصارم بقواعد السحب اليومي والحد الأقصى للخسارة.</p>
+                            <p>التدريب على حسابات تجريبية بشروط صارمة تطابق شروط الفاندد لضمان النجاح من المحاولة الأولى.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: معايير نجاح اختبار التمويل</h4>
+                            <div class="bar-chart-row"><span class="bar-label">الالتزام بالرسم اليومي</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">تحقيق هدف الربح الآمن</span><div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div><span class="bar-value">78%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Portfolio Management Program -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-briefcase"></i> 13. برنامج المحترفين وإدارة المحافظ</h2>
+                        <span class="slide-subtitle">15 / PORTFOLIO MANAGEMENT</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الاحتراف المؤسسي وتوزيع الأصول</h3>
+                            <p>مخصص للمتداولين أصحاب الخبرة السابقة الساعين للانتقال إلى مستوى الاحتراف المؤسسي وإدارة حسابات كبيرة أو محافظ استثمارية متعددة الأصول.</p>
+                            <p>استراتيجيات تنويع المخاطر، التحوط (Hedging)، وإعداد التقارير المالية الدورية للمستثمرين.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: توزيع المحافظ الاستثمارية</h4>
+                            <div class="bar-chart-row"><span class="bar-label">أصول منخفضة المخاطر</span><div class="bar-track"><div class="bar-fill" style="width: 40%;"></div></div><span class="bar-value">40%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">مضاربات فوركس وذهب</span><div class="bar-track"><div class="bar-fill" style="width: 45%;"></div></div><span class="bar-value">45%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">سيولة نقدية احتياطية</span><div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div><span class="bar-value">15%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Free Library & Introductory Courses -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-book-bookmark"></i> 14. دورات المكتبة المجانية التأسيسية</h2>
+                        <span class="slide-subtitle">16 / FREE LIBRARY</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الوصول الحر للمعرفة المالية السليمة</h3>
+                            <p>قسم دائم ومتجدد من الدورات والمقاطع المجانية المتاحة لجميع الراغبين في التعرف على أصول القراءة السليمة للشارت ودخول عالم التداول دون أي عوائق مادية.</p>
+                            <p>حلقات مصورة، شروحات للمنصات، وبثوث تفاعلية عبر يوتيوب وتلغرام.</p>
+                        </div>
+                        <div class="chart-container">
+                            <h4 style="color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 4px;">رسم بياني: نسب الاستفادة من المحتوى المجاني</h4>
+                            <div class="bar-chart-row"><span class="bar-label">الفيديوهات التأسيسية</span><div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div><span class="bar-value">90%</span></div>
+                            <div class="bar-chart-row"><span class="bar-label">البثوث التفاعلية</span><div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div><span class="bar-value">85%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Private Mentoring (1-on-1) -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-user-graduate"></i> 15. مسارات التدريب الخاص والخاصة (1-on-1)</h2>
+                        <span class="slide-subtitle">17 / PRIVATE MENTORING</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <div>
+                                <h3>إشراف فردي خاص ومباشر</h3>
+                                <p>جلسات تدريبية مخصصة ومباشرة مع أحد خبراء الأكاديمية لمتابعة أداء المتدرب بشكل دقيق وفردي.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-sliders"></i>
+                            <div>
+                                <h3>خطة دراسية مصممة حسب الطلب</h3>
+                                <p>تركيز كامل على نقاط الضعف الخاصة بالمتداول وتعديل خطة العمل لتناسب جدوله الزمني بدقة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Comparative Analysis of Tracks -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-table-columns"></i> 16. مقارنة المسارات والبرامج التدريبية</h2>
+                        <span class="slide-subtitle">18 / COMPARISON</span>
+                    </div>
+                    <div class="grid-3col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>المستوى التأسيسي</h3>
+                            <p>مخصص للمبتدئين تماماً. التركيز على المنصات، المصطلحات، وأساسيات قراءة الشارت الأولي.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>المستوى المتقدم</h3>
+                            <p>سلوك السعر، العرض والطلب (SMC)، إدارة المخاطر المتقدمة، وعلم نفس التداول.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>المستوى المؤسسي</h3>
+                            <p>جلسات حية، إدارة محافظ كبرى، واجتياز اختبارات التمويل العالمية باحتراف.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: Training Statistics & Success Rates -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chart-pie"></i> 17. إحصائيات النجاح وأداء المتدربين</h2>
+                        <span class="slide-subtitle">19 / PERFORMANCE STATS</span>
+                    </div>
+                    <div class="chart-container" style="height: 100%; justify-content: space-around;">
+                        <h4 style="color: var(--gold-solid); font-size: 0.95rem; text-align: center;">مقارنة شاملة لمؤشرات الأداء عبر المسارات المختلفة</h4>
+                        <div class="bar-chart-row"><span class="bar-label">الالتزام بخطة العمل</span><div class="bar-track"><div class="bar-fill" style="width: 89%;"></div></div><span class="bar-value">89%</span></div>
+                        <div class="bar-chart-row"><span class="bar-label">اجتياز تحديات التمويل</span><div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div><span class="bar-value">78%</span></div>
+                        <div class="bar-chart-row"><span class="bar-label">الرضا العام عن المناهج</span><div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div><span class="bar-value">95%</span></div>
+                        <div class="bar-chart-row"><span class="bar-label">استمرارية الأرباح الشهرية</span><div class="bar-track"><div class="bar-fill" style="width: 82%;"></div></div><span class="bar-value">82%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 20: Tools & Platforms -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-desktop"></i> 18. الأدوات والمنصات المعتمدة بالتدريب</h2>
+                        <span class="slide-subtitle">20 / TOOLS & PLATFORMS</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <div>
+                                <h3>منصة MetaTrader 5</h3>
+                                <p>المنصة العالمية الأولى لتنفيذ الصفقات وتحليل البيانات الحية بدقة تامة وبأسرع سرعة تنفيذ.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-chart-area"></i>
+                            <div>
+                                <h3>منصة TradingView</h3>
+                                <p>أقوى منصة للتحليل الفني والرسم البياني وتتبع السيولة والمؤشرات الفنية العالمية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 21: Student Journey & Roadmap -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-road"></i> 19. خارطة طريق المتدرب في الأكاديمية</h2>
+                        <span class="slide-subtitle">21 / STUDENT ROADMAP</span>
+                    </div>
+                    <div class="grid-3col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الخطوة الأولى</h3>
+                            <p>التسجيل في الدورات التأسيسية أو المجانية واكتساب المعارف الأولى وأبجديات السوق.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الخطوة الثانية</h3>
+                            <p>حضور جلسات التداول الحية وتطبيق الاستراتيجيات تحت إشراف الخبراء المباشر.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>الخطوة الثالثة</h3>
+                            <p>الوصول لمرحلة الاحتراف وإدارة الحسابات أو اجتياز شركات التمويل بنجاح تام.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Quality Assurance & Support -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-circle-check"></i> 20. ضمان الجودة والدعم المستمر</h2>
+                        <span class="slide-subtitle">22 / QUALITY ASSURANCE</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تضمن أكاديمية إنتر بوينت حصول كل متدرب على دعم فني وأكاديمي مستمر حتى بعد انتهاء البرنامج التدريبي.</p>
+                        <p>نؤمن بأن سوق المال متجدد باستمرار، ولهذا فإن قنوات التواصل ومجتمعات الدعم تظل مفتوحة لضمان مواكبة المتداول لأية مستجدات اقتصادية أو فنية عالمية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 23: Testimonials & Success Stories -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-comments"></i> 21. قصص نجاح المتدربين</h2>
+                        <span class="slide-subtitle">23 / SUCCESS STORIES</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>تحول من الخسارة إلى الاستقرار</h3>
+                            <p>«بفضل الله ثم بفضل الانضباط ومنهجية إدارة المخاطر في إنتر بوينت، تحولت من متداول غارق في العشوائية إلى متداول يحقق أرباحاً شهرية ثابتة.» - متخرج من برنامج المحترفين.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>اجتياز اختبارات التمويل</h3>
+                            <p>«الجلسات الحية وشرح سلوك صناع السوق (SMC) كان هو المفتاح الذي مكنني من اجتياز تحدي التمويل بنجاح والحصول على حساب مممول.» - متدرب بالأكاديمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 24: FAQ on Courses -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-circle-question"></i> 22. الأسئلة الشائعة حول المسارات</h2>
+                        <span class="slide-subtitle">24 / FAQ</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>هل الدورات تناسب المبتدئين تماماً؟</h3>
+                            <p>نعم، لدينا مسارات مخصصة تبدأ من الصفر المطلق ولا تتطلب أي خبرة سابقة في الأسواق المالية.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>هل توجد متابعة بعد انتهاء الدورة؟</h3>
+                            <p>بالتأكيد، يبقى المتدرب عضواً في مجتمع الأكاديمية ويستفيد من الجلسات الحية والتحديثات المستمرة مدى الحياة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 25: Conclusion & Enrollment -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-compass"></i> 25. اختر مسارك وابدأ الاحتراف الآن</h2>
+                        <span class="slide-subtitle">25 / GET STARTED</span>
+                    </div>
+                    
+                    <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 1rem; text-align: center;">سواء كنت مبتدئاً تبدأ من الصفر أو متداولاً تبحث عن الاحتراف وإدارة المحافظ، لدينا البرنامج المناسب لك:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 850px; margin: 0 auto;">
+                        <a href="https://enterpoint.online" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-solid fa-globe"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 2px;">الموقع الإلكتروني</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: bold;">enterpoint.online</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/00963940274873" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 2px;">التسجيل والاستفسار (واتساب)</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: bold; direction: ltr; text-align: right;">00963940274873</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: auto; padding-top: 0.8rem;">
+                        <div class="logo-ep" style="font-size: 1.5rem;">EP</div>
+                        <div style="color: var(--gold-solid); font-size: 0.75rem; margin-top: 2px; letter-spacing: 2px;">ENTER POINT TRADING ACADEMY © جميع الحقوق محفوظة</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="btn-nav" id="nextBtn" title="الشريحة التالية"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slide-indicator" id="slideIndicator"><span>1</span> / 25</div>
+            <button class="btn-nav" id="prevBtn" title="الشريحة السابقة"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const indicator = document.getElementById('slideIndicator');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                indicator.innerHTML = `<span>${currentSlide + 1}</span> / ${totalSlides}`;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    prevSlide(); 
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextSlide(); 
+                } else if (e.key === ' ' || e.key === 'Enter') {
+                    nextSlide();
+                }
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>

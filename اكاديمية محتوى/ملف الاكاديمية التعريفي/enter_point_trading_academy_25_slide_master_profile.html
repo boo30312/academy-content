@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف التعريفي الشامل والمكثف - أكاديمية إنتر بوينت (25 شريحة)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --bg-lighter: #141414;
+            --gold-gradient: linear-gradient(135deg, #c5a059, #f8df95, #c5a059);
+            --gold-solid: #c5a059;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-gold: rgba(197, 160, 89, 0.3);
+            --glow-gold: 0 0 20px rgba(197, 160, 89, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #111;
+            background-image: radial-gradient(circle at 50% 0%, #2a2210 0%, #111 70%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentation-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            height: 720px;
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.7);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        .slide-title-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slide-title i {
+            font-size: 1.8rem;
+            -webkit-text-fill-color: var(--gold-solid);
+        }
+
+        .slide-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .slide-cover {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-cover .info-section {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .logo-ep {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .logo-ep i { font-size: 2rem; position: absolute; top: 10px; left: -35px; -webkit-text-fill-color: var(--gold-solid); }
+        .logo-text-en { font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--gold-solid); text-transform: uppercase; margin-top: 10px;}
+        
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .text-block p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .feature-box {
+            background-color: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-gold);
+        }
+        .feature-box:hover { transform: translateY(-3px); border-color: var(--gold-solid); }
+        
+        .feature-box i {
+            font-size: 1.8rem;
+            color: var(--gold-solid);
+            background: rgba(197, 160, 89, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .feature-box h3 { color: var(--text-light); margin-bottom: 4px; font-size: 1.1rem; }
+        .feature-box p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin: 0;}
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            text-align: center;
+        }
+        .stat-card {
+            background: var(--bg-lighter);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-gold);
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-solid);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        .stat-label { font-size: 1rem; font-weight: bold; color: var(--text-light);}
+
+        .controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 4rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(10, 10, 10, 0.85);
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-nav {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(197, 160, 89, 0.2);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            color: var(--text-muted);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            min-width: 80px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .slide-indicator span { color: var(--gold-solid); font-weight: bold; font-size: 1.4rem;}
+
+        @media (max-width: 1024px) {
+            .presentation-wrapper { height: 100vh; border-radius: 0; border: none; }
+            .grid-2col, .grid-3col { grid-template-columns: 1fr; gap: 1rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .slide-content { padding: 1.5rem; }
+            .controls { left: 50%; transform: translateX(-50%); bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-wrapper">
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- Slide 1: Cover -->
+            <div class="slide slide-cover active">
+                <div class="info-section">
+                    <div class="logo-container">
+                        <div class="logo-ep">EP <i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="logo-text-en">ENTER POINT TRADING ACADEMY</div>
+                        <div style="font-size: 1.1rem; color: var(--gold-solid); margin-top: 10px; letter-spacing: 2px;">الملف التعريفي الشامل والمكثف (25 شريحة)</div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-light); margin-bottom: 8px;">المرجع الأكاديمي والمهني المتكامل لأسواق المال</h1>
+                        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7;">
+                            استعراض دقيق وشامل لتاريخ التأسيس، الهيكلية الإدارية، المناهج التعليمية، وفلسفة إدارة المخاطر في أكاديمية إنتر بوينت.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Table of Contents - Part 1 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-list-ul"></i> جدول المحتويات (1/2)</h2>
+                        <span class="slide-subtitle">02 / INDEX PART I</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div>
+                            <div class="feature-box"><h3>01</h3><p>صفحة الغلاف والهوية البصرية</p></div>
+                            <div class="feature-box"><h3>02</h3><p>مقدمة وأهداف الملف التعريفي الشامل</p></div>
+                            <div class="feature-box"><h3>03</h3><p>النشأة وتاريخ التأسيس لـ Enter Point</p></div>
+                            <div class="feature-box"><h3>04</h3><p>الرؤية الاستراتيجية والرسالة التعليمية</p></div>
+                            <div class="feature-box"><h3>05</h3><p>القيم الجوهرية وميثاق المصداقية والأمانة</p></div>
+                            <div class="feature-box"><h3>06</h3><p>الهيكل الإداري والقيادي للأكاديمية</p></div>
+                            <div class="feature-box"><h3>07</h3><p>التعريف بمؤسس الأكاديمية: رضا الحجي</p></div>
+                            <div class="feature-box"><h3>08</h3><p>فريق الخبراء والمحللين (ماهر، شادي، فاطمة، رنيم)</p></div>
+                            <div class="feature-box"><h3>09</h3><p>طبيعة الأسواق المستهدفة (فوركس، مؤشرات، رقمية)</p></div>
+                            <div class="feature-box"><h3>10</h3><p>فلسفة التداول ومحاربة العشوائية</p></div>
+                            <div class="feature-box"><h3>11</h3><p>إدارة المخاطر كركيزة أساسية للنجاح</p></div>
+                            <div class="feature-box"><h3>12</h3><p>علم نفس التداول والسيطرة العاطفية</p></div>
+                        </div>
+                        <div>
+                            <div class="feature-box"><h3>13</h3><p>المرحلة الأولى: التأسيس المعرفي والتقني</p></div>
+                            <div class="feature-box"><h3>14</h3><p>المرحلة الثانية: التحليل الفني الكلاسيكي والمتقدم</p></div>
+                            <div class="feature-box"><h3>15</h3><p>المرحلة الثالثة: سلوك السعر والعرض والطلب</p></div>
+                            <div class="feature-box"><h3>16</h3><p>المرحلة الرابعة: التطبيق الحي والمحاكاة (Backtesting)</p></div>
+                            <div class="feature-box"><h3>17</h3><p>خدمة جلسات التداول الحية اليومية (Live Trading)</p></div>
+                            <div class="feature-box"><h3>18</h3><p>برامج التدريب المتقدم وإدارة المحافظ</p></div>
+                            <div class="feature-box"><h3>19</h3><p>مجتمع التلغرام وقنوات المتابعة الفورية</p></div>
+                            <div class="feature-box"><h3>20</h3><p>دور قناة اليوتيوب والمكتبة التعليمية المجانية</p></div>
+                            <div class="feature-box"><h3>21</h3><p>الإنجازات الرقمية وإحصائيات المتدربين</p></div>
+                            <div class="feature-box"><h3>22</h3><p>التعاون والشراكات المجتمعية والإعلامية</p></div>
+                            <div class="feature-box"><h3>23</h3><p>الخطط التطويرية المستقبلية لأكاديمية إنتر بوينت</p></div>
+                            <div class="feature-box"><h3>24-25</h3><p>لماذا إنتر بوينت؟ ومعلومات التواصل الرسمية</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Introduction & Objectives -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-circle-info"></i> مقدمة وأهداف الملف</h2>
+                        <span class="slide-subtitle">03 / INTRODUCTION</span>
+                    </div>
+                    <div class="text-block">
+                        <p>يُعد هذا الملف التعريفي وثيقة مرجعية شاملة ومكثفة توثق مسيرة أكاديمية إنتر بوينت (Enter Point Trading Academy) منذ انطلاقتها وحتى يومنا هذا. تم تصميم هذا المستند لتقديم صورة واضحة وشفافة لكل مهتم، متدرب، أو شريك استراتيجي حول أسس العمل الأكاديمي، المناهج، الفلسفة الاستثمارية، والخبرات البشرية التي تقود مسيرة النجاح.</p>
+                        <p>نهدف من خلال هذه الصفحات الـ 25 إلى إزالة الغموض عن عالم أسواق المال، وتقديم نموذج تدريبي صادق ومهني يضع حماية رأس المال في مقدمة أولوياته.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Foundation History -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-landmark"></i> النشأة وتاريخ التأسيس</h2>
+                        <span class="slide-subtitle">04 / FOUNDATION</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>البدايات والدافع لتأسيس الأكاديمية</h3>
+                            <p>تأسست أكاديمية إنتر بوينت نتيجة حاجة ماسة في السوق العربي لبيئة تعليمية حقيقية بعيدة عن الوعود الوهمية والتوصيات العشوائية التي تغرق فيها الإنترنت. لاحظ المؤسسون الافتقار الشديد للتأسيس العلمي السليم وإدارة المخاطر لدى غالبية المتداولين المبتدئين.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3>التطور والانتقال المؤسسي</h3>
+                            <p>بدأت الأكاديمية كمبادرة فردية لتقديم الاستشارات، وتطورت تدريجياً لتصبح صرحاً أكاديمياً متكاملاً يضم نخبة من المحللين والمدربين المعتمدين، وقاعدة واسعة من المتدربين الناجحين الذين حققوا استقلالية مالية تامة في أسواق الفوركس والمؤشرات والعملات الرقمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Vision & Mission -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-bullseye"></i> الرؤية والرسالة الاستراتيجية</h2>
+                        <span class="slide-subtitle">05 / VISION & MISSION</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column; padding: 2rem;">
+                            <i class="fa-solid fa-eye" style="margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.3rem; color: var(--gold-solid); margin-bottom: 10px;">الرؤية الاستراتيجية</h3>
+                            <p style="font-size: 1rem; line-height: 1.7;">أن نكون المنصة الأكاديمية والمهنية الأولى في العالم العربي لتمكين المتداولين، وصناعة جيل محترف واعٍ بأسس الاستثمار وإدارة المخاطر في الأسواق المالية العالمية وفق معايير الجودة العالمية.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column; padding: 2rem;">
+                            <i class="fa-solid fa-rocket" style="margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.3rem; color: var(--gold-solid); margin-bottom: 10px;">الرسالة التعليمية</h3>
+                            <p style="font-size: 1rem; line-height: 1.7;">تقديم محتوى علمي وتطبيقي صادق وموثوق، يعتمد على الشفافية والتحليل الفني الدقيق، لنقل المتدرب من مرحلة العشوائية والخسارة إلى مرحلة الاستقلالية التامة وتحقيق الأرباح بانضباط وصبر.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Core Values & Ethics -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-shield-halved"></i> القيم الجوهرية والأمانة المهنية</h2>
+                        <span class="slide-subtitle">06 / CORE VALUES</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-handshake"></i>
+                            <div>
+                                <h3>المصداقية المطلقة</h3>
+                                <p>لا نعد بأرباح خيالية مضمونة، بل نؤكد أن التداول عمل شاق يتطلب تعلماً والتزاماً.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <div>
+                                <h3 style="font-size: 1rem;">الشفافية الكاملة</h3>
+                                <p>عرض الصفقات الرابحة والخاسرة بكل شفافية خلال الجلسات الحية لتعلم الدروس الحقيقية.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <h3>التمكين الذاتي</h3>
+                                <p>هدفنا ليس إبقاء المتدرب تابعاً لنا، بل تحويله إلى محلل ومستقل بذاته.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-headset"></i>
+                            <div>
+                                <h3>الدعم المستمر</h3>
+                                <p>متابعة إرشادية لا تنتهي بانتهاء الدورة التدريبية، بل تستمر طوال مسيرة المتداول.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Administrative & Leadership Structure -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-sitemap"></i> الهيكل الإداري والقيادي للأكاديمية</h2>
+                        <span class="slide-subtitle">07 / MANAGEMENT STRUCTURE</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تتمتع أكاديمية إنتر بوينت بهيكلية إدارية وفنية مرنة ومترابطة تضمن سرعة اتخاذ القرار وجودة المحتوى المقدم. تتألف الإدارة العليا من المؤسس ومدير الأكاديمية، تليها الإدارة الفنية المسؤولة عن تطوير المناهج واختبار استراتيجيات التداول، ثم قسم الدعم الفني وخدمة المتدربين، وقسم الإعلام الرقمي والنشر.</p>
+                        <p>هذا التكامل الإداري يضمن أن يكون كل متدرب محاطاً ببيئة داعمة ومحترفة من اليوم الأول وحتى التخرج.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Founder Profile: Rida Al Hajji -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-user-tie"></i> مؤسس الأكاديمية: رضا الحجي</h2>
+                        <span class="slide-subtitle">08 / FOUNDER PROFILE</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div>
+                            <h3 style="color: var(--gold-solid); font-size: 1.4rem; margin-bottom: 10px;">رضا الحجي - مؤسس ومدير أكاديمية</h3>
+                            <p>متداول محترف ومحلل مالي بخبرة تمتد لسنوات طويلة في أسواق المال العالمية (الفوركس، المؤشرات، العملات الرقمية). قاد مسيرة تأسيس الأكاديمية ليضع خلاصة تجاربه في منصة تعليمية رائدة.</p>
+                            <p>يؤمن بأن إدارة المخاطر هي عماد أي نجاح استثماري، وكرس جهوده لتصحيح المفاهيم الخاطئة عن التداول في الوطن العربي.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column; background: var(--bg-lighter);">
+                            <h3 style="color: var(--gold-solid);">فلسفة المؤسس القيادية</h3>
+                            <p>«السوق لا يكافئ الذكاء العشوائي، بل يكافئ الانضباط الصارم وإدارة المخاطر. رأس المال هو الأغلى، وحمايته تسبق السعي خلف الأرباح.»</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Expert Faculty & Mentors -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-users"></i> نخبة الخبراء والمحاضرين</h2>
+                        <span class="slide-subtitle">09 / EXPERT FACULTY</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <div>
+                                <h3>ماهر ممو (محلل فني ومدرب)</h3>
+                                <p>متخصص في قراءة الشارتات، الكلاسيكي المتقدم، وتحليل سلوك السيولة والأسعار بدقة متناهية.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <div>
+                                <h3>شادي الرختوان (محلل فني وخبير أسواق)</h3>
+                                <p>خبير في رصد الفرص السعرية، مؤشرات التداول، وتوجيه المتدربين نحو التطبيق العملي الفعلي.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <div>
+                                <h3>فاطمة الحجي (محللة ومدربة أكاديمية)</h3>
+                                <p>متابعة دقيقة للبيانات الاقتصادية الكلية وتأثيرها المباشر على حركة الأصول المختلفة.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <div>
+                                <h3>رنيم الطحلاوي (خبيرة ومحللة مالية)</h3>
+                                <p>إعداد البرامج التدريبية وتوفير الدعم الاستشاري الفردي لتعزيز مهارات المتداولين.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Target Financial Markets -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-globe"></i> طبيعة الأسواق المالية المستهدفة</h2>
+                        <span class="slide-subtitle">10 / FINANCIAL MARKETS</span>
+                    </div>
+                    <div class="grid-3col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <i class="fa-solid fa-coins"></i>
+                            <h3>سوق الفوركس (Forex)</h3>
+                            <p>تداول أزواج العملات العالمية الرئيسية والتقاطعية على مدار 24 ساعة بأعلى سيولة.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <h3>المؤشرات العالمية (Indices)</h3>
+                            <p>متابعة وتحليل مؤشرات الأسهم الكبرى كالداو جونز والناسداك وإدارة صفقاتها باحترافية.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <i class="fa-solid fa-bitcoin-sign"></i>
+                            <h3>العملات الرقمية والمعادن</h3>
+                            <p>دراسة حركة الذهب والمعادن الثمينة وأسواق الكريبتو وفق سلوك السيولة والتحليل الفني.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Trading Philosophy -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-brain"></i> فلسفة التداول ومحاربة العشوائية</h2>
+                        <span class="slide-subtitle">11 / TRADING PHILOSOPHY</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تعتمد فلسفة أكاديمية إنتر بوينت على رفض قاطع للمضاربة العشوائية أو الاعتماد على الحظ والتوصيات الجاهزة التي تقدم سمكة بدلاً من تعليم صيدها.</p>
+                        <p>نحن نعلم المتدرب كيف يقرأ بنية السوق (Market Structure)، وكيف يفهم دوافع صناع السوق (Smart Money)، وكيف يبني استراتيجية دخول وخروج واضحة وموثقة بالأرقام والإحصائيات لتصبح التداولات عبارة عن خطوة استثمارية مدروسة لا مغامرة عمياء.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Risk Management Pillar -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-scale-balanced"></i> إدارة المخاطر كركيزة أساسية</h2>
+                        <span class="slide-subtitle">12 / RISK MANAGEMENT</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3 style="color: var(--gold-solid);">الحفاظ على رأس المال أولاً</h3>
+                            <p>الشعار الأبدي في الأكاديمية هو: «احمِ رأس مالك أولاً، فالأرباح تأتي كناتج طبيعي للانضباط». نتعلم بدقة نسب المخاطرة للعائد (Risk to Reward Ratio) وألا تتجاوز الخسارة في أي صفقة النسبة المئوية الآمنة من إجمالي رأس المال.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3 style="color: var(--gold-solid);">حساب اللوت وإدارة الصفقات</h3>
+                            <p>تطبيق عملي لحساب أحجام العقود (Lot Size) بما يتناسب مع مسافة وقف الخسارة (Stop Loss)، لضمان النجاة من تقلبات السوق العنيفة والاستمرار على المدى الطويل.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Trading Psychology -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-heart-pulse"></i> علم نفس التداول (Trading Psychology)</h2>
+                        <span class="slide-subtitle">13 / PSYCHOLOGY</span>
+                    </div>
+                    <div class="text-block">
+                        <p>يُمثل الجانب النفسي العاطفي 80% من نجاح أو فشل أي متداول. الخوف، الطمع، التردد، والانتقام من السوق بعد الخسارة هي الفخاخ القاتلة التي تقع فيها غالبية الحسابات.</p>
+                        <p>في إنتر بوينت، نخصص مساحات واسعة من برامجنا التدريبية لتدريب المتدرب على السيطرة العاطفية، وضع قواعد صارمة للتداول الآلي النفسي، وكيفية تقبل الخسارة كجزء طبيعي من بيئة العمل التجاري.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Stage 1 - Knowledge Foundation -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-1"></i> المرحلة الأولى: التأسيس المعرفي والتقني</h2>
+                        <span class="slide-subtitle">14 / STAGE ONE</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h3>الخطوات الأولى نحو الاحتراف</h3>
+                            <p>فهم آليات أسواق المال العالمية، المصطلحات الأساسية (السبريد، النقطة، الرافعة المالية)، أنواع الأصول، وكيفية التعامل الاحترافي مع منصات التداول الشهيرة (مثل MT5 ومنصات التحليل المختلفة) ليكون المتدرب قادراً على تنفيذ العمليات بكل ثقة وأمان.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Stage 2 - Technical Analysis -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-2"></i> المرحلة الثانية: التحليل الفني المتقدم</h2>
+                        <span class="slide-subtitle">15 / STAGE TWO</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <div>
+                            <h3>قراءة الشارت والمدارس الكلاسيكية</h3>
+                            <p>التعمق في المدارس الكلاسيكية، تحديد خطوط الاتجاه (Trendlines)، النماذج السعرية الانعكاسية والاستمرارية، مناطق الدعم والمقاومة القوية، واستخدام المؤشرات الفنية المساعدة بدقة لتأكيد الإشارات الاستثمارية وتجنب الإشارات الوهمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Stage 3 - Price Action & SMC -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-3"></i> المرحلة الثالثة: سلوك السعر والعرض والطلب</h2>
+                        <span class="slide-subtitle">16 / STAGE THREE</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <div>
+                            <h3>اقتناص المناطق الحساسة في السوق</h3>
+                            <p>دراسة حركة الشموع اليابانية بعمق، تحديد مناطق العرض والطلب (Supply & Demand)، اختلالات التوازن السعري (Imbalances)، ومناطق السيولة المؤسسية لاصطياد صفقات ذات عائد مرتفع ونسب مخاطرة ضيقة للغاية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Stage 4 - Simulation & Backtesting -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-4"></i> المرحلة الرابعة: التطبيق الحي والمحاكاة</h2>
+                        <span class="slide-subtitle">17 / STAGE FOUR</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div>
+                            <h3>اختبار الأداء وبناء الثقة العملية</h3>
+                            <p>الانتقال إلى الشارتات التاريخية والحية عبر إجراء اختبارات الأداء (Backtesting)، وتطبيق الاستراتيجيات المكتسبة على حسابات تجريبية وحية تحت إشراف وتوجيه مباشر من خبراء الأكاديمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Live Trading Service -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-headset"></i> خدمة جلسات التداول الحية اليومية</h2>
+                        <span class="slide-subtitle">18 / LIVE TRADING</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تُعد جلسات التداول الحية (Live Trading Sessions) إحدى أقوى الخدمات التي تقدمها أكاديمية إنتر بوينت. يجتمع المدربون والمتدربون في بيئة تفاعلية لمتابعة الأسواق لحظة بلحظة.</p>
+                        <p>يتم خلال هذه الجلسات تحليل الفرص الحية أمام العلن، مناقشة أسباب دخول الصفقات وإدارتها، ورصد الأخبار الاقتصادية الهامة وتأثيرها الفوري، مما يمنح المتدرب خبرة ميدانية لا تقدر بثمن.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: Programs & Specialized Courses -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-graduation-cap"></i> البرامج والدورات التدريبية المتقدمة</h2>
+                        <span class="slide-subtitle">19 / PROGRAMS & COURSES</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-award"></i>
+                            <div>
+                                <h3>دبرنامج الشامل للمبتدئين</h3>
+                                <p>رحلة متكاملة تأخذ بيدك من الصفر حتى إتقان فتح الحساب وتنفيذ أول صفقة ناجحة.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <div>
+                                <h3>برنامج الاحتراف وإدارة المحافظ</h3>
+                                <p>مخصص للمتداولين الساعين لتطوير مهاراتهم والوصول لمستويات إدارة رأس المال المؤسسي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 20: Community & Telegram Network -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-brands fa-telegram"></i> مجتمع التلغرام وقنوات المتابعة</h2>
+                        <span class="slide-subtitle">20 / TELEGRAM COMMUNITY</span>
+                    </div>
+                    <div class="text-block">
+                        <p>لا تتوقف العملية التعليمية داخل قاعات المحاضرات، بل تمتد عبر مجتمع رقمي تفاعلي نشط على منصة التلغرام (t.me/enterpointacademy).</p>
+                        <p>يتم من خلال هذا المجتمع نشر التحديثات السوقية الفورية، الفرص (Setups)، التحليلات الصباحية، والرد السريع على استفسارات المتداولين لضمان بقائهم في قلب الحدث الاقتصادي على مدار الساعة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 21: YouTube & Educational Library -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-brands fa-youtube"></i> قناة اليوتيوب والمكتبة المجانية</h2>
+                        <span class="slide-subtitle">21 / YOUTUBE LIBRARY</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تضم قناة الأكاديمية على اليوتيوب مكتبة غنية بمئات الساعات من الدروس المجانية، الشروحات التفضيلية لمنصات التداول، واللقاءات الأسبوعية المسجلة.</p>
+                        <p>تؤمن الأكاديمية بحق كل إنسان في الحصول على معرفة أساسية سليمة، ولهذا تحرص على توفير محتوى مرئي عالي الجودة ومجاني للجمهور العربي المهتم بأسواق المال.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Achievements & Statistics -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chart-line"></i> الإنجازات والأرقام القياسية</h2>
+                        <span class="slide-subtitle">22 / STATISTICS</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">+2500</div>
+                            <div class="stat-label">متدرب تخرجوا بنجاح</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+8</div>
+                            <div class="stat-label">سنوات خبرة جماعية بالأسواق</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+150</div>
+                            <div class="stat-label">جلسة تداول حية شهرية</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">91%</div>
+                            <div class="stat-label">معدل رضا المتدربين</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">متابعة وإشراف أكاديمي</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">التزام بالصدق المهني</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 23: Future Development Plans -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-stairs"></i> الخطط التطويرية المستقبلية</h2>
+                        <span class="slide-subtitle">23 / FUTURE PLANS</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3 style="color: var(--gold-solid);">توسيع نطاق المنصة الرقمية</h3>
+                            <p>إطلاق تطبيقات ومنصات تفاعلية متطورة تسهل وصول المتدربين للمحتوى الأكاديمي، وتوفر أدوات تحليل ذكية ومساعدة للمتداولين.</p>
+                        </div>
+                        <div class="feature-box" style="flex-direction: column;">
+                            <h3 style="color: var(--gold-solid);">شراكات مع مؤسسات مالية عالمية</h3>
+                            <p>بناء جسور تعاون استراتيجي مع شركات ووسطاء مرخصين عالمياً لتقديم خدمات مميزة وتسهيلات تليق بمتداولي الأكاديمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 24: Why Enter Point? -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-star"></i> لماذا أكاديمية إنتر بوينت؟</h2>
+                        <span class="slide-subtitle">24 / WHY ENTER POINT</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <h3>المصداقية المطلقة</h3>
+                                <p>نبتعد تماماً عن الوعود الوهمية والربح السريع المزعوم، ونركز كلياً على العلم والتطبيق الحقيقي.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <div>
+                                <h3>دعم وإرشاد مستمر</h3>
+                                <p>لا تنتهي علاقتنا بك بانتظام الدورة، بل نرافقك في كل خطوة نحو بناء مستقبلك المالي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 25: Contact & Conclusion -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-address-card"></i> ابدأ رحلة احترافك معنا (تواصل)</h2>
+                        <span class="slide-subtitle">25 / CONTACT US</span>
+                    </div>
+                    
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; text-align: center;">تواصل معنا الآن وانضم إلى مجتمع النخبة من المتداولين المحترفين في أكاديمية إنتر بوينت.</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto;">
+                        <a href="https://enterpoint.online" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-solid fa-globe"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">الموقع الإلكتروني</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">enterpoint.online</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/00963940274873" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">رقم التواصل (واتساب)</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold; direction: ltr; text-align: right;">00963940274873</p>
+                            </div>
+                        </a>
+                        <a href="https://t.me/enterpointacademy" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-telegram"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">قناة التلغرام الرسمية</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">t.me/enterpointacademy</p>
+                            </div>
+                        </a>
+                        <a href="#" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-youtube"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">قناة اليوتيوب التعليمية</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">@enterpointacademy</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: auto; padding-top: 1rem;">
+                        <div class="logo-ep" style="font-size: 1.8rem;">EP</div>
+                        <div style="color: var(--gold-solid); font-size: 0.8rem; margin-top: 3px; letter-spacing: 2px;">ENTER POINT TRADING ACADEMY © جميع الحقوق محفوظة</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="btn-nav" id="nextBtn" title="الشريحة التالية"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slide-indicator" id="slideIndicator"><span>1</span> / 25</div>
+            <button class="btn-nav" id="prevBtn" title="الشريحة السابقة"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const indicator = document.getElementById('slideIndicator');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                indicator.innerHTML = `<span>${currentSlide + 1}</span> / ${totalSlides}`;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    prevSlide(); 
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextSlide(); 
+                } else if (e.key === ' ' || e.key === 'Enter') {
+                    nextSlide();
+                }
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
