@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <title>منشورات LinkedIn - Enter Point Trading Academy | أكتوبر 2026 - جديد</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); color: #fff; padding-top: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .navbar { background: #0f0f1e; border-bottom: 2px solid #d4af37; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; height: 70px; position: sticky; top: 0; z-index: 1000; }
+        .navbar-right { display: flex; align-items: center; gap: 15px; }
+        .navbar-logo-mark { width: 42px; height: 42px; border: 2px solid #d4af37; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #d4af37; font-size: 16px; background: rgba(212, 175, 55, 0.08); }
+        .navbar-brand { display: flex; flex-direction: column; line-height: 1.2; }
+        .navbar-brand .brand-main { font-size: 18px; font-weight: bold; color: #fff; }
+        .navbar-brand .brand-main span { color: #d4af37; }
+        .navbar-brand .brand-sub { font-size: 10px; color: #9e9e9e; }
+        .navbar-center { display: flex; align-items: center; gap: 25px; }
+        .nav-link { color: #fff; text-decoration: none; font-size: 13px; cursor: pointer; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #d4af37; }
+        .navbar-left { display: flex; align-items: center; gap: 10px; }
+        .nav-pill { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; color: #fff; font-size: 12px; cursor: pointer; transition: border-color 0.2s; }
+        .nav-pill:hover { border-color: #d4af37; }
+        .nav-pill .pill-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+        .pill-icon.lang { background: rgba(212, 175, 55, 0.15); color: #d4af37; }
+        .pill-icon.support { background: rgba(0, 188, 212, 0.15); color: #00bcd4; }
+        .news-ticker { background: linear-gradient(135deg, #0f1b3a 0%, #1a2d5a 100%); border: 2px solid #d4af37; border-radius: 12px; padding: 12px 20px; margin-bottom: 30px; overflow: hidden; position: relative; }
+        .news-ticker::before { content: 'BREAKING'; position: absolute; right: 0; top: 0; bottom: 0; background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%); color: #000; font-size: 11px; font-weight: 900; padding: 0 10px; display: flex; align-items: center; }
+        .ticker-content { display: flex; gap: 40px; animation: scroll 30s infinite linear; margin-right: 100px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        .ticker-item { white-space: nowrap; color: #d4af37; font-weight: 600; font-size: 13px; }
+        .stats-bar { display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+        .stat-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%); border: 1px solid #d4af37; border-radius: 10px; padding: 20px 25px; flex: 1; min-width: 150px; }
+        .stat-label { font-size: 12px; color: #9e9e9e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: block; }
+        .stat-value { font-size: 28px; font-weight: 900; color: #d4af37; }
+        .day-section { margin-bottom: 40px; }
+        .day-section.all-published { opacity: 0.6; }
+        .day-header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); border-radius: 10px 10px 0 0; border-bottom: 1px solid #d4af37; margin-bottom: 15px; }
+        .day-header.published { background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%); border-bottom-color: #4cb50; }
+        .day-title { font-size: 16px; font-weight: 700; color: #d4af37; }
+        .day-header.published .day-title { color: #4cb50; }
+        .day-count { font-size: 12px; color: #9e9e9e; }
+        .day-posts { display: grid; gap: 20px; margin-bottom: 20px; }
+        .post-card { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #d4af37; border-radius: 10px; padding: 20px; transition: all 0.3s ease; position: relative; }
+        .post-card:hover { box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2); transform: translateY(-2px); }
+        .post-card.published { opacity: 0.5; background: linear-gradient(135deg, #1a2e1a 0%, #1e3e1e 100%); border-color: #4cb50; }
+        .post-published-container { position: absolute; top: 15px; left: 15px; display: flex; align-items: center; gap: 8px; }
+        .post-published-checkbox { width: 20px; height: 20px; cursor: pointer; }
+        .post-published-label { font-size: 11px; color: #9e9e9e; }
+        .post-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; margin-top: 5px; }
+        .post-time { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 5px; background: rgba(212, 175, 55, 0.1); color: #d4af37; }
+        .post-time.evening { background: rgba(255, 193, 7, 0.1); color: #ffc107; }
+        .post-number { font-size: 11px; color: #9e9e9e; font-weight: 600; }
+        .post-text { font-size: 14px; line-height: 1.8; color: #e0e0e0; margin-bottom: 15px; white-space: pre-wrap; word-break: break-word; }
+        .post-footer { display: flex; flex-direction: column; gap: 12px; padding-top: 15px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .hashtags { font-size: 11px; color: #00bcd4; line-height: 1.5; }
+        .copy-btn { background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%); color: #000; border: none; padding: 10px 15px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: transform 0.2s; font-family: 'Tajawal', sans-serif; }
+        .copy-btn:hover { transform: scale(1.05); }
+        .copy-btn:active { transform: scale(0.95); }
+        .copy-feedback { font-size: 11px; color: #4cb50; opacity: 0; transition: opacity 0.3s; }
+        .copy-feedback.show { opacity: 1; }
+        @media (max-width: 768px) {
+            .navbar { padding: 0 15px; }
+            .navbar-center { display: none; }
+            .stat-box { min-width: 100%; }
+            .post-text { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="nav-pill"><span class="pill-icon lang">🌐</span><span>العربية</span></div>
+            <div class="nav-pill"><span class="pill-icon support">💬</span><span>الدعم</span></div>
+        </div>
+        <div class="navbar-center">
+            <a class="nav-link active">منشورات أكتوبر - جديد</a>
+            <a class="nav-link">التحليلات</a>
+            <a class="nav-link">الأداء</a>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-logo-mark">EP</div>
+            <div class="navbar-brand">
+                <span class="brand-main">Enter <span>Point</span></span>
+                <span class="brand-sub">Trading Academy</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="news-ticker">
+            <div class="ticker-content">
+                <span class="ticker-item">💪 منشورات أكتوبر الجديدة - مرحلة التطبيق</span>
+                <span class="ticker-item">🎯 60 منشور عملي متقدم</span>
+                <span class="ticker-item">🏆 من النظرية إلى الممارسة</span>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-box"><span class="stat-label">منشورات منشورة</span><span class="stat-value" id="totalPublished">0</span></div>
+            <div class="stat-box"><span class="stat-label">باقية للنشر</span><span class="stat-value" id="totalRemaining">60</span></div>
+            <div class="stat-box"><span class="stat-label">نسبة الإنجاز</span><span class="stat-value" id="publishPercentage">0%</span></div>
+            <div class="stat-box"><span class="stat-label">أيام مكتملة</span><span class="stat-value" id="daysCompleted">0</span></div>
+        </div>
+
+        <div id="postsContainer"></div>
+    </div>
+
+    <script>
+        const posts = [
+            // Day 1
+            { day: 1, type: 'morning', text: 'الآن:\nتطبيق فعلي.\nليس نظرية.\n\nصفقة حقيقية.\nأموال حقيقية.\nنتائج حقيقية.\n\nخوف؟ طبيعي.\nلكن:\nأنت = مستعد.\n\nابدأ اليوم.\n\n#RealTrading #NoMoreTheory #EnterPoint' },
+            { day: 1, type: 'evening', text: 'مساء البدء:\n\nأول صفقة:\n= خطوة أسد.\n\nمعظم الناس = لا يأخذونها أبداً.\nأنت = ستأخذها.\n\nهذا = يجعلك مختلفاً.\n\n#TakeTheStep #BeBrave #EnterPoint' },
+
+            // Day 2
+            { day: 2, type: 'morning', text: 'الدرس الأول من الحقيقة:\n\nالسوق = لا يهتم بمشاعرك.\n\nعندما تخسر:\n= السوق لا يعتذر.\nعندما تربح:\n= السوق لا يهنئك.\n\nالسوق = محايد.\nأنت = تحكم ردك.\n\n#MarketIsNeutral #YouControl #EnterPoint' },
+            { day: 2, type: 'evening', text: 'مساء الحقائق:\n\nالقسوة الجميلة للسوق:\n= أنه عادل.\n\nلا واسطة.\nلا تمييز.\nفقط = نتائج.\n\nاحترم اللعبة.\n\n#RespectTheGame #Fairness #EnterPoint' },
+
+            // Day 3
+            { day: 3, type: 'morning', text: 'حقيقة محبطة:\n\nمعظم أول صفقة = خسارة.\n\nلا تحزن.\nهذا:\n= درسك الأول.\n= ثمن تعليمك.\n= استثمار في مستقبلك.\n\nكل خسارة = خطوة للربح.\n\n#FirstLossIsOK #StepTowardSuccess #EnterPoint' },
+            { day: 3, type: 'evening', text: 'مساء الدرس:\n\nتعلم من الخسارة:\n= أفضل من الفوز بالحظ.\n\nلأن الحظ = لا يدوم.\nالدرس = يدوم للأبد.\n\n#LessonsLast #ChooseLearning #EnterPoint' },
+
+            // Day 4
+            { day: 4, type: 'morning', text: 'المزلقة الخطرة:\n\nالربح الأول = قد يضرك.\n\nلماذا؟\nقد تفقد الانضباط.\nقد تأخذ صفقات متسرعة.\n\nحتى لو ربحت:\nالتزم بالنظام.\n\n#FirstWinWarning #StayDisciplined #EnterPoint' },
+            { day: 4, type: 'evening', text: 'مساء الاستقرار:\n\nالربح = جميل.\nلكن:\nالنظام = أجمل.\n\nمن يتمسك بالنظام:\nيربح باستمرار.\n\n#SystemFirst #ConsistentWins #EnterPoint' },
+
+            // Day 5
+            { day: 5, type: 'morning', text: 'سؤال للنفس:\n\n\"ماذا فعلت خطأ في الصفقة الأخيرة؟\"\n\nهذا = السؤال الصحيح.\n\nليس:\n\"ليش خسرت؟\"\n\nبل:\n\"من الذي أخطأ؟ أنا أم السوق؟\"\n\n#ProperAnalysis #SelfAccountability #EnterPoint' },
+            { day: 5, type: 'evening', text: 'مساء الفحص:\n\nكل صفقة = دراسة حالة.\n\nادرسها:\n✓ قبل الدخول\n✓ أثناء الصفقة\n✓ بعد الخروج\n\n#TradeAnalysis #CaseStudy #EnterPoint' },
+
+            // Day 6
+            { day: 6, type: 'morning', text: 'حقيقة صادمة:\n\nمعظم أخطاءك:\n= نفسية.\nليست = فنية.\n\nليست من السوق.\nليست من الأداة.\n= من رأسك.\n\nأصلح عقلك أولاً.\n\n#MindFirst #PsychologyMatters #EnterPoint' },
+            { day: 6, type: 'evening', text: 'مساء النفسية:\n\nالمتاجر الناجح:\n= متاجر نفسي.\n\nليس متاجر تقني.\n\nالنفسية = 80%.\nالتقنية = 20%.\n\n#PsychologyIsKey #MindOverTechnique #EnterPoint' },
+
+            // Day 7
+            { day: 7, type: 'morning', text: 'أول أسبوع من التطبيق:\n\nشعورك الآن:\n✓ إثارة\n✓ خوف\n✓ حماس\n✓ شك\n\nكل هذا = طبيعي.\nكل متاجر = شعر هذا.\n\n#NormalFeeling #YourNormal #EnterPoint' },
+            { day: 7, type: 'evening', text: 'مساء المشاعر:\n\nلا تكافح المشاعر.\nاعترف بها.\nثم = تقدم رغمها.\n\nالشجاعة = ليست غياب الخوف.\n= هي التقدم رغم الخوف.\n\n#CourageInAction #MoveForward #EnterPoint' },
+
+            // Day 8
+            { day: 8, type: 'morning', text: 'الصفقات الصغيرة:\n= معسكر تدريب.\n\nلا تأخذ صفقة كبيرة:\nحتى تتمكن من الصفقة الصغيرة.\n\nتعلم التحكم:\n✓ بالعواطف\n✓ بالقرارات\n✓ بالخطة\n\n#SmallIsMighty #MasterTheSmall #EnterPoint' },
+            { day: 8, type: 'evening', text: 'مساء الحكمة:\n\nالصفقة الصغيرة:\nبتعطيك خبرة كبيرة.\n\nبدون تكاليف كبيرة.\nهذا = الذكاء.\n\n#SmartLearning #LowRiskLearning #EnterPoint' },
+
+            // Day 9
+            { day: 9, type: 'morning', text: 'درس من الحقيقة:\n\nكتاب ≠ السوق.\n\nفي الكتاب:\nكل شيء = منطقي.\n\nفي السوق:\nالناس = غير منطقيين.\nالسعر = غير منطقي.\nالحركة = غير منطقية.\n\nاستعد للفوضى.\n\n#MarketChaos #BeadyForAnything #EnterPoint' },
+            { day: 9, type: 'evening', text: 'مساء الواقع:\n\nالواقع = قاسي لكن عادل.\n\nلا تشتكي من القواعد.\nاقبلها.\nأتقنها.\nاربح منها.\n\n#AcceptReality #MasterIt #EnterPoint' },
+
+            // Day 10
+            { day: 10, type: 'morning', text: 'يوم 10:\nثلث الشهر انتهى.\n\nحساب:\n✓ كم صفقة دخلت؟\n✓ كم درس تعلمت؟\n✓ هل تحسنت؟\n\nالحساب = أساس التحسن.\n\n#TrackYourProgress #Numbers #EnterPoint' },
+            { day: 10, type: 'evening', text: 'مساء الإحصاء:\n\nالبيانات = تخبرك الحقيقة.\n\nإذا لم تحسن:\nغير الطريقة.\nإذا تحسنت:\nاستمر.\n\n#DataDriven #LetTheNumbersTalk #EnterPoint' },
+
+            // Day 11
+            { day: 11, type: 'morning', text: 'خطأ شائع:\n\nأخذ صفقات أكثر من اللازم.\n\nجودة > كمية.\n\nصفقة واحدة = محسوبة.\nأفضل من 10 = عشوائية.\n\nانتظر الصفقة الصحيحة.\n\n#QualityOverQuantity #WaitForRight #EnterPoint' },
+            { day: 11, type: 'evening', text: 'مساء الانتظار:\n\nالصبر:\n= أقوى سلاح المتاجر.\n\nمن يصبر = يربح.\nمن يستعجل = يخسر.\n\nتعلم الانتظار.\n\n#PatienceWins #SlowAndSteady #EnterPoint' },
+
+            // Day 12
+            { day: 12, type: 'morning', text: 'النظام = كل شيء.\n\nإذا:\n✗ لم تضع نظام = عشوائي\n✗ تكسر النظام = فوضى\n✓ تتمسك بالنظام = نجاح\n\nبني نظامك الآن.\n\n#SystemIsEverything #BuildYourSystem #EnterPoint' },
+            { day: 12, type: 'evening', text: 'مساء النظام:\n\nكل متاجر ناجح:\n= عنده نظام.\n\nالنظام:\n= قواعد واضحة.\n= التزام كامل.\n= نتائج ثابتة.\n\n#ASystemWorks #Proven #EnterPoint' },
+
+            // Day 13
+            { day: 13, type: 'morning', text: 'خطأ شائع جداً:\n\nتغيير النظام بعد خسارة واحدة.\n\nلا.\nدع النظام = 30 صفقة على الأقل.\nثم = قيّم.\n\nالصفقة الواحدة = لا تعني شيء.\n\n#StayTheCoursе #DontQuit #EnterPoint' },
+            { day: 13, type: 'evening', text: 'مساء الثبات:\n\nالثبات = يفصل الفائزين عن الخاسرين.\n\nمن يتمسك:\nبالنهاية = يربح.\n\n#Consistency #WinnersStay #EnterPoint' },
+
+            // Day 14
+            { day: 14, type: 'morning', text: 'نص الشهر:\n\nنص الطريق انتهى.\n\nكيف = تشعر؟\n✓ أقوى؟\n✓ أذكى؟\n✓ أجرأ؟\n\nكل هذا = إيجابي.\n\n#Halfway #SelfCheckIn #EnterPoint' },
+            { day: 14, type: 'evening', text: 'مساء الامتنان:\n\nامتنن:\nعلى الصفقات (ربح أو خسارة).\nهي = درسك.\n\nامتنن على الألم.\nالألم = يسبق النمو.\n\n#Gratitude #GrowthComes #EnterPoint' },
+
+            // Day 15
+            { day: 15, type: 'morning', text: 'حقيقة مهمة:\n\nخسارتك = ليست فشل.\n\nفشلك = أن تستسلم.\n\nخسارة واحدة = ستؤدي لربح لاحق.\nلكن:\nالاستسلام = سيؤدي للا شيء.\n\nلا تستسلم.\n\n#NotAFailure #KeepGoing #EnterPoint' },
+            { day: 15, type: 'evening', text: 'مساء الإصرار:\n\nالإصرار = وحده ينجح.\n\nليس الذكاء.\nليس الحظ.\n= الإصرار.\n\nأصرّ.\n\n#PersistenceWins #AlwaysChoice #EnterPoint' },
+
+            // Day 16
+            { day: 16, type: 'morning', text: 'درس من خسارة:\n\nكل خسارة = لها سبب.\n\nاعثر على السبب:\n✓ هل كنت عاطفياً؟\n✓ هل كسرت القواعد؟\n✓ هل أخطأت التحليل؟\n\n#FindTheReason #LearnWhy #EnterPoint' },
+            { day: 16, type: 'evening', text: 'مساء الفهم:\n\nفهم الخطأ:\n= أفضل من تكراره.\n\nبعد 10 خسائر:\nبتتعلم 10 دروس.\n\n#LessonsFromLosses #Wisdom #EnterPoint' },
+
+            // Day 17
+            { day: 17, type: 'morning', text: 'سؤال مهم:\n\n\"هل أنت = متاجر أم مقامر؟\"\n\nالفرق:\nمتاجر = يحسب المخاطرة\nمقامر = يلعب على الحظ\n\nكن متاجر.\n\n#TraderVsGambler #ChooseWisely #EnterPoint' },
+            { day: 17, type: 'evening', text: 'مساء الحكمة:\n\nالتجارة = عن الحساب.\nليست = عن الحظ.\n\nحسب قبل الدخول.\nحسب في كل صفقة.\n\n#CalculatedRisks #MathFirst #EnterPoint' },
+
+            // Day 18
+            { day: 18, type: 'morning', text: 'نصيحة ذهبية:\n\nكل خسارة = اكتبها.\n\nاكتب:\n✓ السبب\n✓ الدرس\n✓ ماذا ستفعل مختلفاً\n\nبعد 30 يوم:\nشوف النمط.\n\n#KeepAJournal #TradeJournal #EnterPoint' },
+            { day: 18, type: 'evening', text: 'مساء التوثيق:\n\nالتوثيق = يمنع التكرار.\n\nمن يكتب:\nبيتذكر.\nمن ما يكتب:\nبينسى.\n\nاكتب كل شيء.\n\n#DocumentEverything #Memory #EnterPoint' },
+
+            // Day 19
+            { day: 19, type: 'morning', text: 'الشعور الصعب:\n\nالخوف من الخسارة:\n= قوي جداً.\n\nهذا = طبيعي.\nحتى الأسود يخاف.\n\nلكن:\nالأسود = لا يترك الصيد.\nأنت = لا تترك التجارة.\n\n#FearIsNormal #ActAnway #EnterPoint' },
+            { day: 19, type: 'evening', text: 'مساء الشجاعة:\n\nالشجاعة = ليست غياب الخوف.\n= هي العمل رغم الخوف.\n\nتحرك بخوف.\n\n#CourageUnderPressure #BraveAction #EnterPoint' },
+
+            // Day 20
+            { day: 20, type: 'morning', text: 'ثلثا الشهر انتهى:\n\nآخر ثلث:\n= تصقيل.\n= تثبيت.\n= استعداد للمرحلة التالية.\n\nركز في الآخر 10 أيام.\n\n#FinalStretch #AlmostThere #EnterPoint' },
+            { day: 20, type: 'evening', text: 'مساء القوة:\n\nأكتوبر = قاسي.\nلكن:\nأنت = أصبحت أقوى.\n\nبقي 10 أيام = لتصبح أقسى.\n\n#GetterStronger #AlmostDone #EnterPoint' },
+
+            // Day 21
+            { day: 21, type: 'morning', text: 'درس من المحترفين:\n\nالمحترفون = يأخذون صفقات قليلة.\nلكن:\nجودتها = عالية جداً.\n\nليس كل حركة = صفقة.\n\nانتظر الصفقة المثالية.\n\n#SelectivityMatters #QualityTrades #EnterPoint' },
+            { day: 21, type: 'evening', text: 'مساء الاختيار:\n\nالاختيار الحكيم:\n= يفصل المتاجر الجيد عن الرائع.\n\nكن انتقائياً.\nكن صارماً.\nكن ناجحاً.\n\n#BePicky #SelectTheBest #EnterPoint' },
+
+            // Day 22
+            { day: 22, type: 'morning', text: 'الحقيقة البسيطة:\n\nالنظام = ليس معقد.\n\nمعظم الناس:\n= يعقدون.\n\nالنظام الجيد:\n= بسيط.\n= واضح.\n= سهل الاتباع.\n\nأبسط نظام = الأفضل.\n\n#SimplisityWorks #EasyToFollow #EnterPoint' },
+            { day: 22, type: 'evening', text: 'مساء البساطة:\n\nلا تحتاج 100 أداة.\nتحتاج:\n✓ نظام واحد\n✓ انضباط واحد\n✓ هدف واحد\n\nأنجز واحد تمام.\n\n#OneFocusWins #Mastery #EnterPoint' },
+
+            // Day 23
+            { day: 23, type: 'morning', text: 'حوار مع نفسك:\n\n\"هل أنا = بتطور؟\"\n\nالعلامات:\n✓ تساؤلات أذكى\n✓ قرارات محسوبة\n✓ صبر أكثر\n✓ خسائر أقل\n\nإذا كل هذا = موجود.\nأنت = تتطور.\n\n#CheckYourself #AssessMentalShift #EnterPoint' },
+            { day: 23, type: 'evening', text: 'مساء التقييم:\n\nالتطور = يحدث ببطء.\n\nلكن:\nإذا حافظت على الاتجاه:\nبعد 3 أشهر = ستكون مختلفاً تماماً.\n\n#SlowButSure #TransformationProcess #EnterPoint' },
+
+            // Day 24
+            { day: 24, type: 'morning', text: 'أسبوع واحد:\nمن انتهاء أكتوبر.\n\nآخر 7 أيام:\nلتثبيت النظام.\nلتحضير نفسك لنوفمبر.\n\nنوفمبر = احتراف.\nأنت = مستعد.\n\n#WeekLeft #ReadyForNext #EnterPoint' },
+            { day: 24, type: 'evening', text: 'مساء الاستعداد:\n\nخلال 7 أيام:\nستنتقل من تطبيق = إلى احتراف.\n\nهذا = تحول كبير.\nأنت = جاهز لهذا.\n\n#BigTransformation #BringItOn #EnterPoint' },
+
+            // Day 25
+            { day: 25, type: 'morning', text: 'خمسة أيام:\nلإكمال المرحلة.\n\nاستخدمها لـ:\n✓ مراجعة النظام\n✓ تصحيح الأخطاء\n✓ تقوية الأساس\n\n#FinalRefinement #PolishingProcess #EnterPoint' },
+            { day: 25, type: 'evening', text: 'مساء الإتقان:\n\nالإتقان:\n= ليس كمالية.\n= هو احترافية.\n\nأتقن نظامك الآن.\n\n#Mastery #PerfectYourSystem #EnterPoint' },
+
+            // Day 26
+            { day: 26, type: 'morning', text: 'أربعة أيام:\nتذكر الطريق:\n\n✓ بدأت جاهلاً\n✓ الآن = عندك معرفة\n✓ طبقت بشجاعة\n✓ الآن = عندك خبرة\n\nالتحول = حقيقي.\n\n#RememberTheJourney #HowFarYouVeGone #EnterPoint' },
+            { day: 26, type: 'evening', text: 'مساء الفخر:\n\nفخر بنفسك.\n\nمعظم الناس = لم يأخذوا خطوة.\nأنت = أخذت خطوات كثيرة.\n\nأنت = مختلف.\n\n#BeProud #YouDidIt #EnterPoint' },
+
+            // Day 27
+            { day: 27, type: 'morning', text: 'ثلاثة أيام:\nاستخدمها للقول شكراً:\n\n✓ شكراً لنفسك على الجرأة\n✓ شكراً للسوق على الدروس\n✓ شكراً على كل صفقة (ربح أو خسارة)\n\n#Gratitude #ThankfulSpirit #EnterPoint' },
+            { day: 27, type: 'evening', text: 'مساء التقدير:\n\nالامتنان:\n= يعطيك قوة نفسية.\n\nامتنن على ما لديك.\nستحصل على أكثر.\n\n#AppreciationMultiplies #Gratitude #EnterPoint' },
+
+            // Day 28
+            { day: 28, type: 'morning', text: 'يومين:\nآخر يومين من التطبيق.\n\nالعب بكل ما لديك.\nركز بكل قوة.\nلا تضيع لحظة.\n\nالبقية = قريبة جداً.\n\n#FinalEffort #GiveYourAll #EnterPoint' },
+            { day: 28, type: 'evening', text: 'مساء الاستعداد النهائي:\n\nبعد يوم:\nتنتقل لمرحلة الاحتراف.\n\nأنت = مستعد.\nالسوق = ينتظر.\nالنجاح = قريب.\n\n#FinalHours #ReadyToWin #EnterPoint' },
+
+            // Day 29
+            { day: 29, type: 'morning', text: 'آخر يوم كامل:\nمن أكتوبر.\n\nتذكر:\n✓ الخوف الأول\n✓ الخسارة الأولى\n✓ الدرس الأول\n✓ الثقة الأولى\n\nكل واحد = لحظة انتقال.\n\n#MemorableMonth #TransformativeMonth #EnterPoint' },
+            { day: 29, type: 'evening', text: 'مساء الختام:\n\nأكتوبر = تاريخ شخصي لك.\n\nليس مهم الأرقام.\nالمهم = أنك تغيرت.\n\nأنت = متاجر الآن.\nحقيقي.\nجريء.\nمخطط.\n\n#PersonalHistory #TransformationComplete #EnterPoint' },
+
+            // Day 30
+            { day: 30, type: 'morning', text: 'آخر يوم من أكتوبر:\n\nآخر يوم من مرحلة التطبيق.\n\nغداً:\nنوفمبر = احتراف.\n\nأنت:\n✓ متعلم\n✓ مطبق\n✓ محترف (قريباً)\n\nأنت = جاهز.\n\n#LastDayOfOctober #ReadyForNovember #EnterPoint' },
+            { day: 30, type: 'evening', text: 'مساء الانطلاق:\n\nأكتوبر = كامل.\nصفقاتك = خلفك.\nدروسك = معك.\nثقتك = داخلك.\n\nنوفمبر = بينضج الثمار.\nديسمبر = الحصاد.\n\nالطريق = أمامك.\nأنت = الملك.\n\n#LetsGo #NovemberWaits #Victory #EnterPoint' }
+        ];
+
+        function generateDays() {
+            const container = document.getElementById('postsContainer');
+            container.innerHTML = '';
+            const days = {};
+            posts.forEach(post => {
+                if (!days[post.day]) {
+                    days[post.day] = { morning: null, evening: null };
+                }
+                days[post.day][post.type] = post;
+            });
+
+            Object.keys(days).sort((a, b) => a - b).forEach(dayNum => {
+                const dayData = days[dayNum];
+                const daySection = document.createElement('div');
+                daySection.className = 'day-section';
+                daySection.id = `day-${dayNum}`;
+
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.innerHTML = `<span class="day-title">اليوم ${dayNum}</span><span class="day-count">منشورات: 2</span>`;
+
+                const dayPosts = document.createElement('div');
+                dayPosts.className = 'day-posts';
+
+                if (dayData.morning) dayPosts.appendChild(createPostCard(dayData.morning, dayNum * 2 - 1));
+                if (dayData.evening) dayPosts.appendChild(createPostCard(dayData.evening, dayNum * 2));
+
+                daySection.appendChild(dayHeader);
+                daySection.appendChild(dayPosts);
+                container.appendChild(daySection);
+            });
+
+            updateStats();
+        }
+
+        function createPostCard(post, index) {
+            const card = document.createElement('div');
+            card.className = 'post-card';
+            card.id = `post-${index}`;
+
+            const timeClass = post.type === 'morning' ? 'morning' : 'evening';
+            const timeText = post.type === 'morning' ? '☀️ صباحاً' : '🌙 مساءً';
+
+            card.innerHTML = `<div class="post-published-container"><input type="checkbox" class="post-published-checkbox" onchange="togglePublished(${index})"><span class="post-published-label"></span></div><div class="post-header"><span class="post-time ${timeClass}">${timeText}</span><span class="post-number">#${index}</span></div><div class="post-text">${escapeHtml(post.text)}</div><div class="post-footer"><div class="hashtags">#Trading #Forex #Psychology #EnterPoint #TradingAcademy #RezaAlhajji #StockMarket #InvestmentStrategy</div><button class="copy-btn" onclick="copyPost(${index})">📋 نسخ النص</button><span class="copy-feedback" id="feedback-${index}">✓ تم النسخ</span></div>`;
+
+            return card;
+        }
+
+        function togglePublished(index) {
+            const card = document.getElementById(`post-${index}`);
+            const checkbox = card.querySelector('.post-published-checkbox');
+            
+            card.classList.toggle('published', checkbox.checked);
+
+            const postNumber = index;
+            const dayNum = Math.ceil(postNumber / 2);
+            const daySection = document.getElementById(`day-${dayNum}`);
+            
+            const dayCheckboxes = daySection.querySelectorAll('.post-published-checkbox');
+            const allChecked = Array.from(dayCheckboxes).every(cb => cb.checked);
+            
+            const dayHeader = daySection.querySelector('.day-header');
+            dayHeader.classList.toggle('published', allChecked);
+            daySection.classList.toggle('all-published', allChecked);
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const allCheckboxes = document.querySelectorAll('.post-published-checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const totalCount = allCheckboxes.length;
+            const remainingCount = totalCount - checkedCount;
+            const percentage = Math.round((checkedCount / totalCount) * 100);
+
+            const completedDays = Array.from(document.querySelectorAll('.day-section.all-published')).length;
+
+            document.getElementById('totalPublished').textContent = checkedCount;
+            document.getElementById('totalRemaining').textContent = remainingCount;
+            document.getElementById('publishPercentage').textContent = percentage + '%';
+            document.getElementById('daysCompleted').textContent = completedDays;
+        }
+
+        function copyPost(index) {
+            const post = posts[index - 1];
+            const fullText = `${post.text}\n\n#Trading #Forex #Psychology #EnterPoint #TradingAcademy #RezaAlhajji #StockMarket #InvestmentStrategy\n\nhttps://www.enterpoint.online/`;
+            
+            navigator.clipboard.writeText(fullText).then(() => {
+                const feedback = document.getElementById(`feedback-${index}`);
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                alert('حدث خطأ في النسخ');
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        generateDays();
+    </script>
+</body>
+</html>
