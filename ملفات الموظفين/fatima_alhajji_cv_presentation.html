@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - فاطمة الحجي | Fatima Alhajji CV</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --bg-lighter: #141414;
+            --gold-gradient: linear-gradient(135deg, #c5a059, #f8df95, #c5a059);
+            --gold-solid: #c5a059;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-gold: rgba(197, 160, 89, 0.3);
+            --glow-gold: 0 0 20px rgba(197, 160, 89, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #111;
+            background-image: radial-gradient(circle at 50% 0%, #2a2210 0%, #111 70%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentation-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            height: 720px;
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.7);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 4rem 5rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+
+        .slide-title-wrapper {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slide-title i {
+            font-size: 2rem;
+            -webkit-text-fill-color: var(--gold-solid);
+        }
+
+        .slide-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .slide-cover {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-cover .info-section {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .logo-ep {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .logo-ep i { font-size: 2.2rem; position: absolute; top: 10px; left: -35px; -webkit-text-fill-color: var(--gold-solid); }
+        .logo-text-en { font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold-solid); text-transform: uppercase; margin-top: 5px;}
+        
+        .profile-name-ar { font-size: 3.5rem; font-weight: 800; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; margin-top: 1rem;}
+        .profile-name-en { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold-solid); margin-bottom: 0.5rem;}
+        .profile-title-ar { font-size: 1.4rem; color: var(--gold-solid); margin-top: 1rem; padding: 5px 20px; border: 1px solid var(--border-gold); display: inline-block; border-radius: 30px; background: rgba(197, 160, 89, 0.05);}
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            height: 100%;
+        }
+
+        .text-block p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .feature-box {
+            background-color: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-gold);
+        }
+        .feature-box:hover { transform: translateY(-5px); border-color: var(--gold-solid); }
+        
+        .feature-box i {
+            font-size: 2.2rem;
+            color: var(--gold-solid);
+            background: rgba(197, 160, 89, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .feature-box h3 { color: var(--text-light); margin-bottom: 8px; font-size: 1.3rem; }
+        .feature-box p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0;}
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-card {
+            background: var(--bg-lighter);
+            padding: 2.5rem 1rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-gold);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover { background: rgba(197, 160, 89, 0.05); }
+        .stat-number {
+            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-solid);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .stat-label { font-size: 1.3rem; font-weight: bold; color: var(--text-light);}
+
+        .timeline {
+            position: relative;
+            padding-right: 2rem;
+            border-right: 2px solid var(--border-gold);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -31px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--gold-solid);
+            border-radius: 50%;
+            border: 4px solid var(--bg-card);
+            box-shadow: 0 0 10px var(--gold-solid);
+        }
+        .timeline-date { 
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--gold-solid); 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.1rem; 
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-gold);
+        }
+        .timeline-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-light);}
+        .timeline-content p { color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;}
+
+        .controls {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 4rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(10, 10, 10, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-nav {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(197, 160, 89, 0.2);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            color: var(--text-muted);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            min-width: 70px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .slide-indicator span { color: var(--gold-solid); font-weight: bold; font-size: 1.5rem;}
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .media-card {
+            background: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            gap: 20px;
+        }
+        .media-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(197, 160, 89, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--gold-solid);
+        }
+        .media-info h4 { font-size: 1.2rem; margin-bottom: 5px; }
+        .media-info p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;}
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .contact-item-large {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: var(--bg-lighter);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+        .contact-item-large:hover { 
+            border-color: var(--gold-solid); 
+            background: rgba(197, 160, 89, 0.05);
+            transform: translateY(-5px);
+        }
+        .contact-item-large i { font-size: 3rem; color: var(--gold-solid); }
+        .contact-info h4 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-muted); }
+        .contact-info p { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0; direction: ltr; text-align: right; color: var(--gold-solid);}
+
+        @media (max-width: 1024px) {
+            .presentation-wrapper {
+                height: 100vh;
+                border-radius: 0;
+                border: none;
+            }
+            .grid-2col { grid-template-columns: 1fr; gap: 1.5rem;}
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem;}
+            .slide-content { padding: 2rem; overflow-y: auto;}
+            .controls { left: 50%; transform: translateX(-50%); bottom: 1rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-wrapper">
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- Slide 1: Cover -->
+            <div class="slide slide-cover active">
+                <div class="info-section">
+                    <div class="logo-container">
+                        <div class="logo-ep">EP <i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="logo-text-en">ENTER POINT TRADING ACADEMY</div>
+                        <div style="font-size: 1.1rem; color: var(--gold-solid); margin-top: 10px; letter-spacing: 1px;">نقطة دخولك للاحتراف</div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <h2 class="profile-name-en">Fatima Alhajji</h2>
+                        <h1 class="profile-name-ar">فاطمة الحجي</h1>
+                        <div class="profile-title-ar">محللة أسواق مالية | مدربة أكاديمية</div>
+                        <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0; font-size: 1.2rem; line-height: 1.8;">
+                            ملف السيرة الذاتية لاستعراض المسيرة المهنية، الخبرات التحليلية، والمهارات التدريبية في أكاديمية إنتر بوينت.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: About Me -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-user-tie"></i> من أنا؟</h2>
+                        <span class="slide-subtitle">02 / ABOUT ME</span>
+                    </div>
+                    <div class="text-block" style="max-width: 900px; margin: 0 auto;">
+                        <h3 style="color: var(--gold-solid); font-size: 1.8rem; margin-bottom: 20px;">دقة في التحليل، وشغف بالتعليم المالي</h3>
+                        <p>أنا فاطمة الحجي، محللة أسواق مالية ومدربة معتمدة في أكاديمية Enter Point. أمتلك خبرة في دراسة حركة الأسواق المالية ومتابعة المؤشرات بدقة عالية.</p>
+                        <p>أؤمن بأن التعليم المالي هو المفتاح الحقيقي للنجاح والاستمرارية، وهدفي هو نقل الخبرات والمعارف بطريقة مبسطة وعملية للمتدربين.</p>
+                        <p>أسعى دائماً لمواكبة أحدث المستجدات الاقتصادية وتقديم تحليل موضوعي ومحترف يدعم المتداولين في اتخاذ قراراتهم الاستثمارية بثقة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Expertise -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-gem"></i> مجالات التخصص</h2>
+                        <span class="slide-subtitle">03 / EXPERTISE</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div>
+                            <div class="feature-box">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <div>
+                                    <h3>التحليل الفني والمالي</h3>
+                                    <p>قراءة الرسوم البيانية، دراسة النماذج الفنية، وتحديد الاتجاهات السعرية.</p>
+                                </div>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div>
+                                    <h3>التدريب وتقديم الورش</h3>
+                                    <p>إعداد دورات تفاعلية وورش عمل تعليمية تناسب مختلف مستويات المتداولين.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="feature-box">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <h3>إدارة المخاطر والالتزام</h3>
+                                    <p>وضع استراتيجيات محكمة لحماية رأس المال وتقليل التعرض للخسائر العشوائية.</p>
+                                </div>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                <div>
+                                    <h3>متابعة البيانات الاقتصادية</h3>
+                                    <p>تحليل الأخبار والمؤشرات الاقتصادية الكلية وتقييم تأثيرها على الأسواق.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Experience -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-briefcase"></i> الخبرة المهنية</h2>
+                        <span class="slide-subtitle">04 / EXPERIENCE</span>
+                    </div>
+                    <div class="timeline" style="margin-top: 20px;">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 - الحاضر</div>
+                            <div class="timeline-content">
+                                <h3>محللة مالية ومدربة - Enter Point Trading Academy</h3>
+                                <p>المشاركة في تقديم التحليلات الفنية، الإشراف على البرامج التدريبية، ودعم مجتمع المتداولين بالأكاديمية.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019 - 2021</div>
+                            <div class="timeline-content">
+                                <h3>محللة أسواق مالية مستقلة</h3>
+                                <p>دراسة اتجاهات الأسواق العالمية وتقديم دراسات واستشارات مبسطة للمبتدئين في مجال التداول.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017 - 2019</div>
+                            <div class="timeline-content">
+                                <h3>باحثة اقتصادية مساعدة</h3>
+                                <p>رصد المؤشرات الاقتصادية وتقييم التقارير المالية الصادرة عن المؤسسات الكبرى.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Academy -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-building"></i> أكاديمية إنتر بوينت</h2>
+                        <span class="slide-subtitle">05 / ENTER POINT</span>
+                    </div>
+                    <div class="text-block" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                        <div class="logo-ep" style="font-size: 3rem; margin-bottom: 20px;">EP</div>
+                        <h3 style="color: var(--text-light); font-size: 1.8rem; margin-bottom: 15px;">نقطة دخولك للاحتراف</h3>
+                        <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; text-align: center;">
+                            نلتزم في أكاديمية إنتر بوينت بتوفير بيئة تعليمية واحترافية متكاملة تهدف إلى رفع كفاءة المتداول العربي وتمكينه من مواجهة تحديات أسواق المال بكل ثقة.
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                            <div style="background: var(--bg-lighter); padding: 20px; border-radius: 10px; border: 1px solid var(--border-gold);">
+                                <i class="fa-solid fa-check" style="color: var(--gold-solid); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <p style="margin: 0; color: var(--text-light);">مناهج علمية متطورة</p>
+                            </div>
+                            <div style="background: var(--bg-lighter); padding: 20px; border-radius: 10px; border: 1px solid var(--border-gold);">
+                                <i class="fa-solid fa-check" style="color: var(--gold-solid); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <p style="margin: 0; color: var(--text-light);">جلسات تدريب حية</p>
+                            </div>
+                            <div style="background: var(--bg-lighter); padding: 20px; border-radius: 10px; border: 1px solid var(--border-gold);">
+                                <i class="fa-solid fa-check" style="color: var(--gold-solid); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <p style="margin: 0; color: var(--text-light);">دعم مستمر وإرشاد</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Methodology -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chalkboard-user"></i> منهجية التدريب</h2>
+                        <span class="slide-subtitle">06 / METHODOLOGY</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;">
+                        <div class="feature-box" style="margin-bottom: 0;">
+                            <i class="fa-solid fa-1"></i>
+                            <div>
+                                <h3 style="color: var(--gold-solid); font-size: 1.5rem;">فهم الأساسيات والقواعد</h3>
+                                <p style="font-size: 1.1rem;">تأسيس المتدرب على القواعد الصحيحة لقراءة الرسوم البيانية وفهم حركة السوق الأساسية.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box" style="margin-bottom: 0;">
+                            <i class="fa-solid fa-2"></i>
+                            <div>
+                                <h3 style="color: var(--gold-solid); font-size: 1.5rem;">التطبيق الفعلي والتحليل الحي</h3>
+                                <p style="font-size: 1.1rem;">العمل مباشرة على الشارتات الحية واكتشاف الفرص الحقيقية بناءً على المعطيات الفنية.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box" style="margin-bottom: 0;">
+                            <i class="fa-solid fa-3"></i>
+                            <div>
+                                <h3 style="color: var(--gold-solid); font-size: 1.5rem;">بناء الانضباط وخطة العمل</h3>
+                                <p style="font-size: 1.1rem;">تدريب المتداول على الالتزام الصارم بإدارة المخاطر والابتعاد عن العشوائية في التداول.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Stats -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-chart-line"></i> أرقام وإنجازات</h2>
+                        <span class="slide-subtitle">07 / STATISTICS</span>
+                    </div>
+                    <div class="stats-grid" style="margin-top: 3rem;">
+                        <div class="stat-card">
+                            <div class="stat-number">+5</div>
+                            <div class="stat-label">سنوات خبرة تحليلية</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+850</div>
+                            <div class="stat-label">متدرب تم تدريبهم</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+60</div>
+                            <div class="stat-label">ورشة عمل تدريبية</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">91%</div>
+                            <div class="stat-label">معدل رضا المتدربين</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">متابعة وإشراف أكاديمي</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">احترافية والتزام</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Philosophy -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-scale-balanced"></i> فلسفة العمل</h2>
+                        <span class="slide-subtitle">08 / PHILOSOPHY</span>
+                    </div>
+                    <div class="text-block" style="text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <i class="fa-solid fa-quote-right" style="font-size: 4rem; color: rgba(197, 160, 89, 0.3); margin-bottom: 2rem;"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--gold-solid); margin-bottom: 2rem; line-height: 1.4;">"النجاح في التداول وليد العلم، الصبر، والانضباط المستمر."</h3>
+                        <p style="max-width: 900px; margin: 0 auto; font-size: 1.4rem; text-align: center;">
+                            نؤمن بأن التحليل السليم يجب أن يقترن بخطة إدارة مخاطر دقيقة. هدفنا هو تمكين كل متداول من بناء قراراته بثقة واستقلالية كاملة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Media Activity -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-video"></i> النشاط الأكاديمي</h2>
+                        <span class="slide-subtitle">09 / MEDIA</span>
+                    </div>
+                    
+                    <div class="text-block" style="margin-bottom: 2rem;">
+                        <p>مشاركة المعرفة وتقديم التحديثات والتحليلات اليومية لدعم المتداولين عبر مختلف قنوات الأكاديمية.</p>
+                    </div>
+
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fa-solid fa-chalkboard"></i></div>
+                            <div class="media-info">
+                                <h4>الدورات التدريبية</h4>
+                                <p>تنظيم وإعطاء دورات تفاعلية في فنون التحليل الفني وقراءة حركة الأسعار.</p>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fa-brands fa-telegram"></i></div>
+                            <div class="media-info">
+                                <h4>قنوات التلغرام</h4>
+                                <p>نشر التحديثات الفنية والتحليلات اليومية لمتابعي الأكاديمية.</p>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fa-solid fa-microphone"></i></div>
+                            <div class="media-info">
+                                <h4>المحاضرات العامة</h4>
+                                <p>المشاركة في الندوات الإلكترونية المفتوحة للإجابة على تساؤلات المتداولين.</p>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                            <div class="media-info">
+                                <h4>المحتوى التعليمي</h4>
+                                <p>إعداد مواد إرشادية ومقالات تسهم في نشر الثقافة المالية السليمة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Contact -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-address-card"></i> تواصل معي</h2>
+                        <span class="slide-subtitle">10 / CONTACT</span>
+                    </div>
+                    
+                    <p style="color: var(--text-muted); font-size: 1.3rem; margin-bottom: 3rem;">يسعدني تواصلكم للاستفسارات الأكاديمية، التدريب، أو الاستشارات المالية.</p>
+                    
+                    <div class="contact-grid">
+                        <a href="https://enterpoint.online" target="_blank" class="contact-item-large">
+                            <i class="fa-solid fa-globe"></i>
+                            <div class="contact-info">
+                                <h4>الموقع الإلكتروني</h4>
+                                <p>enterpoint.online</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/00963940274873" target="_blank" class="contact-item-large">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div class="contact-info">
+                                <h4>رقم التواصل (واتساب)</h4>
+                                <p>00963940274873</p>
+                            </div>
+                        </a>
+                        <a href="https://t.me/enterpointacademy" target="_blank" class="contact-item-large">
+                            <i class="fa-brands fa-telegram"></i>
+                            <div class="contact-info">
+                                <h4>قناة التلغرام</h4>
+                                <p>t.me/enterpointacademy</p>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-item-large">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <div class="contact-info">
+                                <h4>لينكد إن</h4>
+                                <p>in/fatima-alhajji</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                        <div class="logo-ep" style="font-size: 2.5rem;">EP</div>
+                        <div style="color: var(--gold-solid); font-size: 1rem; margin-top: 10px; letter-spacing: 2px;">ENTER POINT TRADING ACADEMY ©</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="btn-nav" id="nextBtn" title="الشريحة التالية"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slide-indicator" id="slideIndicator"><span>1</span> / 10</div>
+            <button class="btn-nav" id="prevBtn" title="الشريحة السابقة"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const indicator = document.getElementById('slideIndicator');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                indicator.innerHTML = `<span>${currentSlide + 1}</span> / ${totalSlides}`;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    prevSlide(); 
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextSlide(); 
+                } else if (e.key === ' ' || e.key === 'Enter') {
+                    nextSlide();
+                }
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
