@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <title>منشورات X - Enter Point Trading Academy | ديسمبر 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Tajawal', 'Segoe UI', sans-serif; background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); color: #fff; padding-top: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .navbar { background: #0f0f1e; border-bottom: 2px solid #d4af37; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; height: 70px; position: sticky; top: 0; z-index: 1000; margin: 0 -20px 30px -20px; }
+        .navbar-right { display: flex; align-items: center; gap: 15px; }
+        .navbar-logo-mark { width: 42px; height: 42px; border: 2px solid #d4af37; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #d4af37; font-size: 16px; background: rgba(212, 175, 55, 0.08); }
+        .navbar-brand { display: flex; flex-direction: column; line-height: 1.2; }
+        .navbar-brand .brand-main { font-size: 16px; font-weight: bold; color: #fff; }
+        .navbar-brand .brand-main span { color: #d4af37; }
+        .navbar-brand .brand-sub { font-size: 10px; color: #9e9e9e; }
+        .navbar-center { display: flex; align-items: center; gap: 25px; }
+        .nav-link { color: #fff; text-decoration: none; font-size: 13px; cursor: pointer; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #d4af37; }
+        .navbar-left { display: flex; align-items: center; gap: 10px; }
+        .nav-pill { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; color: #fff; font-size: 11px; cursor: pointer; }
+        .nav-pill:hover { border-color: #d4af37; }
+        .stats-bar { display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .stat-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%); border: 1px solid #d4af37; border-radius: 10px; padding: 15px 20px; flex: 1; min-width: 130px; }
+        .stat-label { font-size: 11px; color: #9e9e9e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: block; }
+        .stat-value { font-size: 24px; font-weight: 900; color: #d4af37; }
+        .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
+        .x-post { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #d4af37; border-radius: 12px; padding: 16px; transition: all 0.3s ease; position: relative; }
+        .x-post:hover { box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2); transform: translateY(-2px); }
+        .x-post.published { opacity: 0.5; background: linear-gradient(135deg, #1a2e1a 0%, #1e3e1e 100%); border-color: #4cb50; }
+        .post-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .post-number { font-size: 12px; font-weight: 700; color: #d4af37; }
+        .post-checkbox { width: 18px; height: 18px; cursor: pointer; }
+        .post-text { font-size: 14px; line-height: 1.6; color: #e0e0e0; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word; }
+        .post-tags { font-size: 11px; color: #00bcd4; margin-bottom: 12px; line-height: 1.4; }
+        .post-footer { display: flex; gap: 10px; padding-top: 12px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .copy-btn { background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%); color: #000; border: none; padding: 8px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; transition: transform 0.2s; font-family: 'Tajawal', sans-serif; flex: 1; }
+        .copy-btn:hover { transform: scale(1.05); }
+        .copy-feedback { font-size: 10px; color: #4cb50; opacity: 0; transition: opacity 0.3s; }
+        .copy-feedback.show { opacity: 1; }
+        @media (max-width: 768px) {
+            .posts-grid { grid-template-columns: 1fr; }
+            .navbar-center { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="nav-pill">🌐 العربية</div>
+        </div>
+        <div class="navbar-center">
+            <a class="nav-link active">منشورات X - ديسمبر</a>
+            <a class="nav-link">التحليلات</a>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-logo-mark">EP</div>
+            <div class="navbar-brand">
+                <span class="brand-main">Enter <span>Point</span></span>
+                <span class="brand-sub">Trading Academy</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-box"><span class="stat-label">منشورات</span><span class="stat-value" id="totalPublished">0</span>/30</div>
+            <div class="stat-box"><span class="stat-label">باقية</span><span class="stat-value" id="totalRemaining">30</span></div>
+            <div class="stat-box"><span class="stat-label">نسبة</span><span class="stat-value" id="publishPercentage">0%</span></div>
+        </div>
+
+        <div class="posts-grid" id="postsContainer"></div>
+    </div>
+
+    <script>
+        const posts = [
+            { id: 1, text: 'ديسمبر = الحصاد.\n\nأربعة أشهر:\nتعلم → تعمق → تطبيق → احتراف.\n\nالآن = حصاد.\n\n#Harvest #Reflection #EnterPoint' },
+            { id: 2, text: 'تقف الآن = مختلفاً تماماً.\n\nدخلت الرحلة:\nخائف.\nضائع.\nيتسائل.\n\nأنت الآن:\nواثق.\nعارف.\nمحترف.\n\n#Transformation #YouChanged #EnterPoint' },
+            { id: 3, text: 'أول درس من الرحلة:\nالسوق = معلم.\n\nليس الكتب.\nليس الكورسات.\n= التطبيق الحقيقي.\n\n#RealMarket #TrueLessons #EnterPoint' },
+            { id: 4, text: 'الخسائر التي تألمت:\n= أصبحت أرباح.\n\nالألم = سعر التعليم.\nالأرباح = ثمرة التطبيق.\n\n#PainToGain #Worth #EnterPoint' },
+            { id: 5, text: 'الأرقام = تحكي القصة.\n\nكم صفقة خضت؟\nكم درس تعلمت؟\nكم تطورت؟\n\nأرقامك = أنت.\n\n#Numbers #Data #TellsTheStory #EnterPoint' },
+            { id: 6, text: 'أعظم اكتشاف:\n\nالسوق = يعطيك بقدر ما تحترمه.\n\nتحترمه = تطيع نظامك.\nتحترمه = تدير خطرك.\nتحترمه = تصبر.\n\n#RespectTheMarket #Obedience #EnterPoint' },
+            { id: 7, text: 'المخاوف التي كان لديك:\nأول يوم = كبيرة.\nالآن = صغيرة.\n\nلأنك:\n✓ اختبرتها\n✓ عشت معها\n✓ تغلبت عليها\n\n#FearsGone #BraveNow #EnterPoint' },
+            { id: 8, text: 'حقيقة الاحتراف:\nليس عن عدم الخسارة.\n= عن إدارة الخسارة.\n\nأنت = الآن = تدير.\n\n#ProTrader #RiskMastery #EnterPoint' },
+            { id: 9, text: 'أفضل استثمار عملته:\n= فيك أنت.\n\nليس في الأسهم.\nليس في الفوركس.\n= فيك.\n\nهذا = الاستثمار الأفضل.\n\n#InvestedInYourself #BestReturn #EnterPoint' },
+            { id: 10, text: 'أسبوع من الحصاد:\n\nتقف:\n✓ متعلماً\n✓ جريئاً\n✓ قوياً\n✓ محترفاً\n\nهذا = أنت الآن.\n\n#YouAreReady #Complete #EnterPoint' },
+            { id: 11, text: 'الدرس الأهم:\nلا تنسَ من أين أتيت.\n\nتذكر:\n- الخوف الأول\n- الشك الأول\n- الخسارة الأولى\n\nكانت بدايات عظيمة.\n\n#NeverForget #Origins #EnterPoint' },
+            { id: 12, text: 'السنة الجديدة:\nستكون مختلفة.\n\nلأنك:\n= مختلف.\nلأنك:\n= تعلمت.\nلأنك:\n= تطورت.\n\n#NewYearNewYou #Ready #EnterPoint' },
+            { id: 13, text: 'الشكر:\nلكل صفقة ربحت.\nلكل صفقة خسرت.\nلكل درس تعلمت.\n\nشكراً = أنت أقوى.\n\n#Gratitude #AllLessons #EnterPoint' },
+            { id: 14, text: 'نص الشهر:\n\nأنت = تقيّم السنة.\nترى النمو.\nتعترف بالتطور.\n\nهذا = ليس حظ.\n= هو اختيارك.\n\n#YouDid #YourChoice #EnterPoint' },
+            { id: 15, text: 'حقيقة عميقة:\nالنجاح = ليس وجهة.\n= هو رحلة.\n\nأنت = في الرحلة.\nلم تنته.\n= بدأ.\n\n#JourneyNotDestination #JustBeginning #EnterPoint' },
+            { id: 16, text: 'الأشياء التي لن تنساها:\n\n✓ أول صفقة\n✓ أول ربح\n✓ أول خسارة\n✓ أول احتراف\n\nذكريات ثمينة.\n\n#Memories #Milestones #EnterPoint' },
+            { id: 17, text: 'الطريق أمامك:\nطويلة.\nأطول من هذا.\nلكن:\nأنت جاهز.\n\nلأنك:\n✓ تعرف الطريق\n✓ تملك الأدوات\n✓ تملك الشجاعة\n\n#PathAhead #YouAreReady #EnterPoint' },
+            { id: 18, text: 'الفرق الذي صنعته 4 أشهر:\n\nليس في الأموال.\n= في عقلك.\n\nعقلك = تغيّر.\nتفكيرك = تطور.\nأنت = نمت.\n\n#MindsetShift #FundamentalChange #EnterPoint' },
+            { id: 19, text: 'لن تعود:\nللمكان الذي كنت فيه.\n\nأنت:\n✓ رأيت الطريق\n✓ عرفت النظام\n✓ احترفت اللعبة\n\nلا عودة.\n= تقدم فقط.\n\n#NoGoingBack #OnlyForward #EnterPoint' },
+            { id: 20, text: 'السؤال الأهم:\n\nهل أنت:\nأفضل = من أول الرحلة؟\n\nالإجابة = نعم.\nبألف مرة.\n\n#MeasureYourGrowth #YouGrew #EnterPoint' },
+            { id: 21, text: 'أسبوعين من الحصاد:\n\nأنت = تستعد:\nللسنة القادمة.\nللأهداف الجديدة.\nللنمو الأكبر.\n\n#Preparation #NextChapter #EnterPoint' },
+            { id: 22, text: 'رسالة لنفسك الماضية:\n\nأنت = لم تكن مخطئاً.\nأنت = كنت تتعلم.\nأنت = كنت تنمو.\n\nشكراً لك = على الشجاعة.\n\n#SelfCompassion #YouTried #EnterPoint' },
+            { id: 23, text: 'الثقة التي بنيتها:\n\nليست من الفراغ.\n= من التطبيق.\n\nكل صفقة = أضافت ثقة.\nكل نجاح = أكد ثقتك.\nكل فشل = قوّى عزيمتك.\n\n#BuiltConfidence #ThroughAction #EnterPoint' },
+            { id: 24, text: 'ستة أيام:\nمتبقية من السنة.\n\nآخر فرصة:\nلتقيم رحلتك.\nلتشكر نفسك.\nلتستعد للتالي.\n\n#FinalDays #ClosingReflection #EnterPoint' },
+            { id: 25, text: 'حقيقة تستحق التذكر:\n\nليس كل المتاجرين:\nيحمي أموالهم.\nليس كل المتاجرين:\nينضبطون.\nليس كل المتاجرين:\nيصلون هنا.\n\nأنت = فعلت.\n\n#YouMadeIt #Special #EnterPoint' },
+            { id: 26, text: 'خمسة أيام:\nمن نهاية السنة.\n\nخمسة أيام:\nقبل البداية الجديدة.\n\nاستخدمها:\nلتقدير رحلتك.\n\n#AlmostThere #NewBeginning #EnterPoint' },
+            { id: 27, text: 'الشكر الأخير:\n\nشكراً:\n✓ للسوق - علمتني\n✓ للألم - قوتني\n✓ للنجاح - ألهمتني\n✓ لنفسي - جهدت\n\n#Grateful #ForEverything #EnterPoint' },
+            { id: 28, text: 'أسبوع واحد:\nمن نهاية السنة.\n\nأنت = اكتملت رحلة.\nأنت = نمت كثيراً.\nأنت = جاهزة للتالي.\n\n#RoundComplete #OnwardBound #EnterPoint' },
+            { id: 29, text: 'آخر يومين:\nمن السنة القديمة.\n\nودّع:\n- الخوف القديم\n- الشكوك القديمة\n- النسخة القديمة منك\n\nالسنة الجديدة:\n= نسخة محسّنة.\n\n#NewYearAwaits #Evolution #EnterPoint' },
+            { id: 30, text: 'السنة انتهت.\nأنت = اكتملت.\n\nدخلت = مبتدئاً.\nخرجت = محترفاً.\n\nالسنة الجديدة:\nستكون أعظم.\n\nأنت:\nجاهز.\n\n#RoundComplete #Legend #EnterPoint #Victory' }
+        ];
+
+        function generatePosts() {
+            const container = document.getElementById('postsContainer');
+            container.innerHTML = '';
+
+            posts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'x-post';
+                card.id = `post-${post.id}`;
+
+                card.innerHTML = `
+                    <div class="post-header">
+                        <span class="post-number">#${post.id}</span>
+                        <input type="checkbox" class="post-checkbox" onchange="togglePublished(${post.id})">
+                    </div>
+                    <div class="post-text">${escapeHtml(post.text)}</div>
+                    <div class="post-tags">#Trading #Forex #Psychology #EnterPoint #TradingAcademy #RezaAlhajji</div>
+                    <div class="post-footer">
+                        <button class="copy-btn" onclick="copyPost(${post.id})">📋 نسخ</button>
+                        <span class="copy-feedback" id="feedback-${post.id}">✓ تم</span>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            updateStats();
+        }
+
+        function togglePublished(id) {
+            const card = document.getElementById(`post-${id}`);
+            const checkbox = card.querySelector('.post-checkbox');
+            card.classList.toggle('published', checkbox.checked);
+            updateStats();
+        }
+
+        function updateStats() {
+            const allCheckboxes = document.querySelectorAll('.post-checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const totalCount = allCheckboxes.length;
+            const remainingCount = totalCount - checkedCount;
+            const percentage = Math.round((checkedCount / totalCount) * 100);
+
+            document.getElementById('totalPublished').textContent = checkedCount;
+            document.getElementById('totalRemaining').textContent = remainingCount;
+            document.getElementById('publishPercentage').textContent = percentage + '%';
+        }
+
+        function copyPost(id) {
+            const post = posts.find(p => p.id === id);
+            const fullText = `${post.text}\n\n#Trading #Forex #Psychology #EnterPoint #TradingAcademy #RezaAlhajji\n\nhttps://www.enterpoint.online/`;
+            
+            navigator.clipboard.writeText(fullText).then(() => {
+                const feedback = document.getElementById(`feedback-${id}`);
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                alert('خطأ في النسخ');
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        generatePosts();
+    </script>
+</body>
+</html>
