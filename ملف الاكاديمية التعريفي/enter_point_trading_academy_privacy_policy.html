@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية الشاملة - أكاديمية إنتر بوينت</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --bg-lighter: #141414;
+            --gold-gradient: linear-gradient(135deg, #c5a059, #f8df95, #c5a059);
+            --gold-solid: #c5a059;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-gold: rgba(197, 160, 89, 0.3);
+            --glow-gold: 0 0 20px rgba(197, 160, 89, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #111;
+            background-image: radial-gradient(circle at 50% 0%, #2a2210 0%, #111 70%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentation-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            height: 720px;
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.7);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 4rem 5rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        .slide-title-wrapper {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .slide-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slide-title i {
+            font-size: 2rem;
+            -webkit-text-fill-color: var(--gold-solid);
+        }
+
+        .slide-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .slide-cover {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-cover .info-section {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .logo-ep {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .logo-ep i { font-size: 2.2rem; position: absolute; top: 10px; left: -35px; -webkit-text-fill-color: var(--gold-solid); }
+        .logo-text-en { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 3px; color: var(--gold-solid); text-transform: uppercase; margin-top: 10px;}
+        
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .text-block p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .feature-box {
+            background-color: var(--bg-lighter);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-gold);
+        }
+        .feature-box:hover { transform: translateY(-3px); border-color: var(--gold-solid); }
+        
+        .feature-box i {
+            font-size: 2rem;
+            color: var(--gold-solid);
+            background: rgba(197, 160, 89, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .feature-box h3 { color: var(--text-light); margin-bottom: 5px; font-size: 1.2rem; }
+        .feature-box p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;}
+
+        .controls {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 4rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(10, 10, 10, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-nav {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(197, 160, 89, 0.2);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            color: var(--text-muted);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            min-width: 70px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .slide-indicator span { color: var(--gold-solid); font-weight: bold; font-size: 1.5rem;}
+
+        @media (max-width: 1024px) {
+            .presentation-wrapper { height: 100vh; border-radius: 0; border: none; }
+            .grid-2col { grid-template-columns: 1fr; gap: 1rem; }
+            .slide-content { padding: 2rem; }
+            .controls { left: 50%; transform: translateX(-50%); bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-wrapper">
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- Slide 1: Cover -->
+            <div class="slide slide-cover active">
+                <div class="info-section">
+                    <div class="logo-container">
+                        <div class="logo-ep">EP <i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="logo-text-en">ENTER POINT TRADING ACADEMY</div>
+                        <div style="font-size: 1.2rem; color: var(--gold-solid); margin-top: 15px; letter-spacing: 2px;">سياسة الخصوصية وحماية البيانات</div>
+                    </div>
+                    <div style="margin-top: 3rem;">
+                        <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-light); margin-bottom: 10px;">وثيقة سياسة الخصوصية الشاملة</h1>
+                        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
+                            التزامنا بحماية سرية معلوماتك الشخصية وبياناتك الأكاديمية والتجارية في أكاديمية إنتر بوينت.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Introduction & General Principles -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-shield-halved"></i> 01. مقدمة ومبادئ أساسية</h2>
+                        <span class="slide-subtitle">02 / INTRODUCTION</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تُولي أكاديمية إنتر بوينت (Enter Point Trading Academy) أقصى درجات الاهتمام لخصوصية مستخدميها والمتدربين عبر منصاتها الرقمية ومواقعها الإلكترونية.</p>
+                        <p>توضح هذه السياسة كيف نقوم بجمع، استخدام، حماية، ومشاركة معلوماتك الشخصية عندما تستخدم موقعنا الإلكتروني أو تسجل في برامجنا التدريبية وجلسات التداول الحية. استخدامك لخدماتنا يعنى موافقتك الكاملة على بنود هذه السياسة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Information We Collect -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-database"></i> 02. المعلومات التي نقوم بجمعها</h2>
+                        <span class="slide-subtitle">03 / DATA COLLECTION</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <div>
+                                <h3>المعلومات الشخصية المباشرة</h3>
+                                <p>الاسم الكامل، البريد الإلكتروني، رقم الهاتف (واتساب)، وبلد الإقامة عند التسجيل في الدورات أو التواصل معنا.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <div>
+                                <h3 style="font-size: 1rem;">البيانات التقنية وتصفح الموقع</h3>
+                                <p>عنوان بروتوكول الإنترنت (IP)، نوع المتصفح، نظام التشغيل، صفحات الموقع التي زرتها، ووقت الزيارة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: How We Use Your Information -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-gears"></i> 03. كيفية استخدام المعلومات</h2>
+                        <span class="slide-subtitle">04 / USE OF DATA</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <h3>تقديم الخدمات الأكاديمية</h3>
+                                <p>تفعيل حسابات المتدربين، إرسال روابط المحاضرات، وتوفير الدعم الفني والإرشاد المستمر.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <div>
+                                <h3>التواصل والتحديثات السوقية</h3>
+                                <p>إرسال التحليلات اليومية، الفرص الاستثمارية عبر قنوات التلغرام، وإشعارات الدورات والورش الجديدة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Data Protection & Security -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-lock"></i> 04. أمن وحماية البيانات</h2>
+                        <span class="slide-subtitle">05 / DATA SECURITY</span>
+                    </div>
+                    <div class="text-block">
+                        <p>نحن نستخدم أحدث التقنيات والإجراءات الأمنية التقنية والإدارية المتقدمة لحماية بياناتك الشخصية من الوصول غيرAuthorized، أو التعديل، أو الإفصاح، أو الإتلاف غير القانوني.</p>
+                        <p>يتم تخزين قواعد البيانات في بيئات مشفرة وآمنة للغاية، ولا يُسمح بالوصول إليها إلا للموظفين المخولين حصراً لتقديم الخدمات الأكاديمية والدعم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Cookies & Tracking Technologies -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-cookie-bite"></i> 05. ملفات تعريف الارتباط (Cookies)</h2>
+                        <span class="slide-subtitle">06 / COOKIES</span>
+                    </div>
+                    <div class="text-block">
+                        <p>يستخدم موقعنا الإلكتروني ملفات تعريف الارتباط (Cookies) لتحسين تجربة تصفحك، تحليل حركة المرور، وتخصيص المحتوى والإعلانات.</p>
+                        <p>يمكنك التحكم في قبول أو رفض ملفات تعريف الارتباط من خلال إعدادات متصفحك الخاص، مع العلم أن تعطيلها قد يؤثر على عمل بعض الميزات في المنصة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Third-Party Disclosure -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-share-nodes"></i> 06. عدم مشاركة البيانات مع الأطراف الثالثة</h2>
+                        <span class="slide-subtitle">07 / THIRD PARTIES</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تلتزم أكاديمية إنتر بوينت التزاماً قاطعاً بـ **عدم بيع، المتاجرة، أو تأجير** بياناتك الشخصية لأي أطراف ثالثة لأغراض تسويقية أو تجارية.</p>
+                        <p>قد يتم مشاركة معلومات محدودة فقط مع مزودي الخدمات الموثوقين الذين يساعدوننا في تشغيل الموقع أو تقديم الخدمات (مثل منصات التواصل أو الاستضافة)، بشرط التزامهم التام بسرية البيانات.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: User Rights & Control -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-user-check"></i> 07. حقوق المستخدم والتحكم بالبيانات</h2>
+                        <span class="slide-subtitle">08 / USER RIGHTS</span>
+                    </div>
+                    <div class="grid-2col">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <div>
+                                <h3>الوصول والتعديل</h3>
+                                <p>يحق لك في أي وقت طلب الاطلاع على بياناتك الشخصية المحفوظة لدينا وتعديلها أو تحديثها.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-ban"></i>
+                            <div>
+                                <h3>إلغاء الاشتراك وحذف البيانات</h3>
+                                <p>يمكنك طلب إلغاء الاشتراك في الرسائل الترويجية أو طلب مسح بياناتك نهائياً من سجلاتنا عبر التواصل معنا.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Policy Updates & Modifications -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-clock-rotate-left"></i> 08. التعديلات على سياسة الخصوصية</h2>
+                        <span class="slide-subtitle">09 / POLICY UPDATES</span>
+                    </div>
+                    <div class="text-block">
+                        <p>تحتفظ أكاديمية إنتر بوينت بالحق في تحديث أو تعديل سياسة الخصوصية هذه في أي وقت لضمان مواكبتها للمستجدات القانونية والتقنية.</p>
+                        <p>سيتم نشر أي تعديلات جوهرية على هذه الصفحة مع تحديث تاريخ "آخر تحديث". استمرارك في استخدام خدماتنا بعد التعديلات يعتبر موافقة ضمنية على الشروط المحدثة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Contact & Legal Inquiries -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-title-wrapper">
+                        <h2 class="slide-title"><i class="fa-solid fa-address-card"></i> 09. التواصل والاستفسارات القانونية</h2>
+                        <span class="slide-subtitle">10 / CONTACT US</span>
+                    </div>
+                    
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; text-align: center;">إذا كان لديك أي استفسارات أو طلبات تتعلق بسياسة الخصوصية وحماية البيانات، يسعدنا تواصلك معنا:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto;">
+                        <a href="https://enterpoint.online" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-solid fa-globe"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">الموقع الإلكتروني</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">enterpoint.online</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/00963940274873" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">رقم التواصل (واتساب)</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold; direction: ltr; text-align: right;">00963940274873</p>
+                            </div>
+                        </a>
+                        <a href="https://t.me/enterpointacademy" target="_blank" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-telegram"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">قناة التلغرام الرسمية</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">t.me/enterpointacademy</p>
+                            </div>
+                        </a>
+                        <a href="#" class="feature-box" style="text-decoration: none; align-items: center; margin-bottom: 0;">
+                            <i class="fa-brands fa-youtube"></i>
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2px;">قناة اليوتيوب التعليمية</h4>
+                                <p style="color: var(--gold-solid); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: bold;">@enterpointacademy</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: auto; padding-top: 1rem;">
+                        <div class="logo-ep" style="font-size: 1.8rem;">EP</div>
+                        <div style="color: var(--gold-solid); font-size: 0.8rem; margin-top: 3px; letter-spacing: 2px;">ENTER POINT TRADING ACADEMY © جميع الحقوق محفوظة</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="btn-nav" id="nextBtn" title="الشريحة التالية"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slide-indicator" id="slideIndicator"><span>1</span> / 10</div>
+            <button class="btn-nav" id="prevBtn" title="الشريحة السابقة"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const indicator = document.getElementById('slideIndicator');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                indicator.innerHTML = `<span>${currentSlide + 1}</span> / ${totalSlides}`;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    prevSlide(); 
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextSlide(); 
+                } else if (e.key === ' ' || e.key === 'Enter') {
+                    nextSlide();
+                }
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
